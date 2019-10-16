@@ -1,0 +1,2700 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <AirShoppingRS Version="IATA_VERSION_2017_2" xmlns="http://www.iata.org/IATA/EDIST/2017.2">
+            <Document>
+                <Name>BA</Name>
+            </Document>
+            <Success/>
+            <ShoppingResponseID>
+                <ResponseID>tx-08-201-e58e69ba-313d-4151-bec2-0bdc99e06414</ResponseID>
+            </ShoppingResponseID>
+            <OffersGroup>
+                <AirlineOffers>
+                    <AirlineOfferSnapshot>
+                        <PassengerQuantity>9</PassengerQuantity>
+                    </AirlineOfferSnapshot>
+                    <Offer OfferID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">7608.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">7492.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">936.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">545.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">391.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">116.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-6b0c2f09-32e6-4b86-9f4f-87a945ca1733-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">116.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">54.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-31c39907-490f-4827-a565-556884ce0690" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">8916.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-31c39907-490f-4827-a565-556884ce0690-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">8784.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-31c39907-490f-4827-a565-556884ce0690-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-31c39907-490f-4827-a565-556884ce0690-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1098.11</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">677.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">421.11</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-31c39907-490f-4827-a565-556884ce0690-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">131.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-31c39907-490f-4827-a565-556884ce0690-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-31c39907-490f-4827-a565-556884ce0690-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">131.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">68.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">13596.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">13412.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1676.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1204.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">472.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">183.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-f3b580f2-f747-42e5-9813-c34d7591c04f-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">183.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">120.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">14156.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">13964.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1745.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1301.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">192.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-be881b56-62b4-47b4-a999-0c46e22fe0f9-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">192.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">130.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-a892950a-9b03-4580-9c8b-606429f019cf" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">14156.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">13964.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1745.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1301.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">192.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-a892950a-9b03-4580-9c8b-606429f019cf-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">192.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">130.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">14904.59</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">14705.68</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1838.21</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1336.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">502.21</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">198.91</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-6492ba83-8610-42f5-b1eb-527309ccaf00-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">198.91</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">134.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">64.91</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-fda22518-e226-4f28-a783-fc12625d915a" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">15046.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">14844.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1855.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1383.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">472.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">201.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-fda22518-e226-4f28-a783-fc12625d915a-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">201.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">138.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">15463.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">15256.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1907.11</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1433.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">474.11</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">206.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-f7bcb857-096c-4469-9a09-8a1fc0f14b90-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">206.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">143.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">15463.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">15256.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1907.11</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1433.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">474.11</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">206.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b37dd722-e4cd-46e7-af43-35a19dc19338-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">206.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">143.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">15606.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">15396.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1924.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1480.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">210.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-449d726f-6c9b-4661-9c59-97fcf1b6bb41-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">210.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">148.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-fc861166-8705-4db0-baaf-1fca302a8afb" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">15606.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">15396.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">1924.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1480.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">210.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-fc861166-8705-4db0-baaf-1fca302a8afb-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">210.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">148.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">16753.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">16524.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2065.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">1674.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">391.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">229.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-94527bfc-2b90-4dbd-85bd-c3d5af33a32e-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">229.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">167.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_1</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-1e694a98-0531-4122-9251-3cf5abd65b15" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">21034.59</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">20765.68</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2595.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2042.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">553.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">268.91</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-1e694a98-0531-4122-9251-3cf5abd65b15-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">268.91</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">204.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">64.91</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">21594.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21316.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2664.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2139.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">525.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b2a244ad-65a1-4eba-b6c5-6aa377573282-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">214.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">21594.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21316.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2664.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2139.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">525.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-b198a26d-3d8d-4d3f-a67c-3d4dfa1304a8-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">214.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">21594.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21316.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2664.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2139.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">525.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-777d13ae-12f4-47f5-877b-3e40ce8468c9-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">214.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">21594.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21316.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2664.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2139.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">525.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-3e127a3c-0253-4cf0-8397-6c30a9a5c9bc-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">277.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">214.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-4f136921-8ea5-40f3-8761-559e9c97440d" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">22162.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21876.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2734.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2237.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">497.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-4f136921-8ea5-40f3-8761-559e9c97440d-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">224.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-91b9764d-2d88-497d-a138-5c41f585087c" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">22162.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21876.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2734.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2237.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">497.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-91b9764d-2d88-497d-a138-5c41f585087c-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">224.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">22162.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21876.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2734.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2237.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">497.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-ffa91db5-b3ce-4b81-a792-ba7c68d42f80-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight4</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">224.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0142</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">22162.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">21876.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2734.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2237.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">497.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-943982de-5f89-49d6-9f58-83cd2c2d8046-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">286.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">224.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">22741.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">22444.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2805.61</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2333.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">472.61</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">296.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight2</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-027e70cb-d784-4c1d-aa3e-72d3e3697967-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">296.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">233.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0035</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-30fe044f-8101-4bbe-bf65-6244b0153154" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">23301.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">22996.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2874.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2430.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">305.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight1</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-30fe044f-8101-4bbe-bf65-6244b0153154-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">305.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">243.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0143 UK0833_DELMAA2018-11-16</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">23301.79</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">22996.08</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">2874.51</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2430.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">444.51</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">305.71</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-e66eac21-ef97-4d94-b15a-e0c4d1f28b56-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight6</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">305.71</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">243.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">62.71</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_2</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>UK0834 BA0256</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <Offer OfferID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669" Owner="BA" RequestedDateInd="true">
+                        <OfferExpirationDateTime>2018-10-15T16:38:32.481Z</OfferExpirationDateTime>
+                        <PaymentTimeLimitDateTime>2018-10-15T23:59:59.000Z</PaymentTimeLimitDateTime>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="GBP">27468.69</SimpleCurrencyPrice>
+                        </TotalPrice>
+                        <OfferItem OfferItemID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-1">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">27112.88</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-1-SVC-1">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-1-SVC-2">
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH1 SH2 SH3 SH4 SH5 SH6 SH7 SH8</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">3389.11</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">2915.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">474.11</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_4</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                        <OfferItem OfferItemID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-2">
+                            <TotalPriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="GBP">355.81</SimpleCurrencyPrice>
+                                </TotalAmount>
+                            </TotalPriceDetail>
+                            <Service ServiceID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-2-SVC-1">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight3</FlightRefs>
+                            </Service>
+                            <Service ServiceID="OF-095c9b9d-7b0c-4a99-bfb7-ff11c0b05669-OI-2-SVC-2">
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <FlightRefs>Flight5</FlightRefs>
+                            </Service>
+                            <FareDetail>
+                                <PassengerRefs>SH9</PassengerRefs>
+                                <Price>
+                                    <TotalAmount>
+                                        <SimpleCurrencyPrice Code="GBP">355.81</SimpleCurrencyPrice>
+                                    </TotalAmount>
+                                    <BaseAmount Code="GBP">292.00</BaseAmount>
+                                    <Taxes>
+                                        <Total Code="GBP">63.81</Total>
+                                    </Taxes>
+                                </Price>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_4</PriceClassRef>
+                                    <SegmentRefs>BA0257 UK0833_DELMAA2018-11-17</SegmentRefs>
+                                </FareComponent>
+                                <FareComponent>
+                                    <PriceClassRef>PCR_3</PriceClassRef>
+                                    <SegmentRefs>BA0036</SegmentRefs>
+                                </FareComponent>
+                            </FareDetail>
+                        </OfferItem>
+                    </Offer>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-14</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-24</PriceCalendarDate>
+                        <TotalPrice Code="GBP">812.11</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-14</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-25</PriceCalendarDate>
+                        <TotalPrice Code="GBP">772.51</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-14</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-26</PriceCalendarDate>
+                        <TotalPrice Code="GBP">772.51</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-15</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-24</PriceCalendarDate>
+                        <TotalPrice Code="GBP">976.11</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-15</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-26</PriceCalendarDate>
+                        <TotalPrice Code="GBP">936.51</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-16</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-24</PriceCalendarDate>
+                        <TotalPrice Code="GBP">807.11</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-16</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-25</PriceCalendarDate>
+                        <TotalPrice Code="GBP">767.51</TotalPrice>
+                    </PriceCalendar>
+                    <PriceCalendar>
+                        <PriceCalendarDate OriginDestinationReference="OD1">2018-11-16</PriceCalendarDate>
+                        <PriceCalendarDate OriginDestinationReference="OD2">2018-11-26</PriceCalendarDate>
+                        <TotalPrice Code="GBP">767.51</TotalPrice>
+                    </PriceCalendar>
+                </AirlineOffers>
+            </OffersGroup>
+            <DataLists>
+                <PassengerList>
+                    <Passenger PassengerID="SH1">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH2">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH3">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH4">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH5">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH6">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH7">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH8">
+                        <PTC>ADT</PTC>
+                    </Passenger>
+                    <Passenger PassengerID="SH9">
+                        <PTC>INF</PTC>
+                    </Passenger>
+                </PassengerList>
+                <DisclosureList>
+                    <Disclosures ListKey="WorldTravellerPlus">
+                        <Description>
+                            <Text>38" legroom</Text>
+                        </Description>
+                        <Description>
+                            <Text>2 x 23kg checked baggage allowance</Text>
+                        </Description>
+                        <Description>
+                            <Text>Three-course meal and bar service</Text>
+                        </Description>
+                        <Description>
+                            <Text>Separate, smaller cabin</Text>
+                        </Description>
+                    </Disclosures>
+                    <Disclosures ListKey="ClubWorld">
+                        <Description>
+                            <Text>Seat that converts into a 6ft fully flat bed</Text>
+                        </Description>
+                        <Description>
+                            <Text>2 x 32kg checked baggage allowance</Text>
+                        </Description>
+                        <Description>
+                            <Text>Dedicated check-in area</Text>
+                        </Description>
+                        <Description>
+                            <Text>Access to British Airways lounges</Text>
+                        </Description>
+                        <Description>
+                            <Text>Three-course dining including fine wines and champagne</Text>
+                        </Description>
+                    </Disclosures>
+                    <Disclosures ListKey="First">
+                        <Description>
+                            <Text>Seat that converts into a 6ft 6in fully flat bed</Text>
+                        </Description>
+                        <Description>
+                            <Text>3 x 32kg checked baggage allowance</Text>
+                        </Description>
+                        <Description>
+                            <Text>Dedicated First check-in area</Text>
+                        </Description>
+                        <Description>
+                            <Text>Access to luxurious lounges</Text>
+                        </Description>
+                        <Description>
+                            <Text>À la carte menu at a time to suit you</Text>
+                        </Description>
+                        <Description>
+                            <Text>A private concierge service</Text>
+                        </Description>
+                    </Disclosures>
+                </DisclosureList>
+                <FareList>
+                    <FareGroup ListKey="FBCODE1ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>TLXC07S7/N</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE2ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>TLXC07S7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE3ADT">
+                        <Fare>
+                            <FareCode>758</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>TLXZ90M7/N</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE4ADT">
+                        <Fare>
+                            <FareCode>758</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>TLXZ90M7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE5ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>TLWC07S7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE6ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>INXC04S7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE7ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>INNC07S7/N</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE8ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>INNC07S7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE9ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>WNNC00S1/N</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE10ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>WNNC00S1/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE11ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>ANNT04S7/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE12ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>W1RT/N</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                    <FareGroup ListKey="FBCODE13ADT">
+                        <Fare>
+                            <FareCode>70J</FareCode>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>W1RT/Y</Code>
+                        </FareBasisCode>
+                    </FareGroup>
+                </FareList>
+                <FlightSegmentList>
+                    <FlightSegment SegmentKey="BA0143">
+                        <Departure>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-15</Date>
+                            <Time>11:20</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-16</Date>
+                            <Time>01:15</Time>
+                            <ChangeOfDay>1</ChangeOfDay>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0143</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>777</AircraftCode>
+                            <Name>Boeing 777 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT8H25M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="UK0833_DELMAA2018-11-16">
+                        <Departure>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-16</Date>
+                            <Time>07:20</Time>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>MAA</AirportCode>
+                            <Date>2018-11-16</Date>
+                            <Time>10:10</Time>
+                            <AirportName>CHENNAI</AirportName>
+                            <Terminal>
+                                <Name>1</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                            <FlightNumber>0833</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>320</AircraftCode>
+                            <Name>Airbus A320 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT2H50M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="BA0035">
+                        <Departure>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-15</Date>
+                            <Time>14:20</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>MAA</AirportCode>
+                            <Date>2018-11-16</Date>
+                            <Time>05:35</Time>
+                            <ChangeOfDay>1</ChangeOfDay>
+                            <AirportName>CHENNAI</AirportName>
+                            <Terminal>
+                                <Name>4</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0035</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>788</AircraftCode>
+                            <Name>Boeing 787 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT9H45M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="BA0257">
+                        <Departure>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-15</Date>
+                            <Time>18:55</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-16</Date>
+                            <Time>08:50</Time>
+                            <ChangeOfDay>1</ChangeOfDay>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0257</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>777</AircraftCode>
+                            <Name>Boeing 777 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT8H25M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="UK0833_DELMAA2018-11-17">
+                        <Departure>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-17</Date>
+                            <Time>07:20</Time>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>MAA</AirportCode>
+                            <Date>2018-11-17</Date>
+                            <Time>10:10</Time>
+                            <AirportName>CHENNAI</AirportName>
+                            <Terminal>
+                                <Name>1</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                            <FlightNumber>0833</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>320</AircraftCode>
+                            <Name>Airbus A320 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT2H50M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="UK0834">
+                        <Departure>
+                            <AirportCode>MAA</AirportCode>
+                            <Date>2018-11-25</Date>
+                            <Time>17:25</Time>
+                            <AirportName>CHENNAI</AirportName>
+                            <Terminal>
+                                <Name>1</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-25</Date>
+                            <Time>20:10</Time>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                            <FlightNumber>0834</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>UK</AirlineID>
+                            <Name>Vistara</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>320</AircraftCode>
+                            <Name>Airbus A320 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT2H45M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="BA0142">
+                        <Departure>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-26</Date>
+                            <Time>03:20</Time>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-26</Date>
+                            <Time>07:35</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0142</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>777</AircraftCode>
+                            <Name>Boeing 777 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT9H45M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="BA0036">
+                        <Departure>
+                            <AirportCode>MAA</AirportCode>
+                            <Date>2018-11-25</Date>
+                            <Time>07:30</Time>
+                            <AirportName>CHENNAI</AirportName>
+                            <Terminal>
+                                <Name>4</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-25</Date>
+                            <Time>13:15</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0036</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>788</AircraftCode>
+                            <Name>Boeing 787 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT11H15M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="BA0256">
+                        <Departure>
+                            <AirportCode>DEL</AirportCode>
+                            <Date>2018-11-26</Date>
+                            <Time>11:05</Time>
+                            <AirportName>INDIRA GANDHI INTL</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>LHR</AirportCode>
+                            <Date>2018-11-26</Date>
+                            <Time>15:10</Time>
+                            <AirportName>HEATHROW</AirportName>
+                            <Terminal>
+                                <Name>5</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                            <FlightNumber>0256</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>BA</AirlineID>
+                            <Name>British Airways</Name>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>777</AircraftCode>
+                            <Name>Boeing 777 jet</Name>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT9H35M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                    </FlightSegment>
+                </FlightSegmentList>
+                <FlightList>
+                    <Flight FlightKey="Flight1">
+                        <Journey>
+                            <Time>PT17H20M</Time>
+                        </Journey>
+                        <SegmentReferences>BA0143 UK0833_DELMAA2018-11-16</SegmentReferences>
+                    </Flight>
+                    <Flight FlightKey="Flight2">
+                        <Journey>
+                            <Time>PT9H45M</Time>
+                        </Journey>
+                        <SegmentReferences>BA0035</SegmentReferences>
+                    </Flight>
+                    <Flight FlightKey="Flight3">
+                        <Journey>
+                            <Time>P1DT9H45M</Time>
+                        </Journey>
+                        <SegmentReferences>BA0257 UK0833_DELMAA2018-11-17</SegmentReferences>
+                    </Flight>
+                    <Flight FlightKey="Flight4">
+                        <Journey>
+                            <Time>PT19H40M</Time>
+                        </Journey>
+                        <SegmentReferences>UK0834 BA0142</SegmentReferences>
+                    </Flight>
+                    <Flight FlightKey="Flight5">
+                        <Journey>
+                            <Time>PT11H15M</Time>
+                        </Journey>
+                        <SegmentReferences>BA0036</SegmentReferences>
+                    </Flight>
+                    <Flight FlightKey="Flight6">
+                        <Journey>
+                            <Time>P1DT3H15M</Time>
+                        </Journey>
+                        <SegmentReferences>UK0834 BA0256</SegmentReferences>
+                    </Flight>
+                </FlightList>
+                <OriginDestinationList>
+                    <OriginDestination OriginDestinationKey="OD1">
+                        <DepartureCode>LON</DepartureCode>
+                        <ArrivalCode>MAA</ArrivalCode>
+                        <FlightReferences>Flight1 Flight2 Flight3</FlightReferences>
+                    </OriginDestination>
+                    <OriginDestination OriginDestinationKey="OD2">
+                        <DepartureCode>MAA</DepartureCode>
+                        <ArrivalCode>LON</ArrivalCode>
+                        <FlightReferences>Flight4 Flight5 Flight6</FlightReferences>
+                    </OriginDestination>
+                </OriginDestinationList>
+                <PriceClassList>
+                    <PriceClass PriceClassID="PCR_1">
+                        <Name>World Traveller Plus</Name>
+                        <ClassOfService refs="BA0143 FBCODE1ADT WorldTravellerPlus">
+                            <Code SeatsLeft="9">T</Code>
+                            <MarketingName>World Traveller Plus</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0833_DELMAA2018-11-16 FBCODE2ADT">
+                            <Code SeatsLeft="9">H</Code>
+                            <MarketingName>ECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0834 FBCODE3ADT">
+                            <Code SeatsLeft="9">H</Code>
+                            <MarketingName>ECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0142 FBCODE4ADT WorldTravellerPlus">
+                            <Code SeatsLeft="9">T</Code>
+                            <MarketingName>World Traveller Plus</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0036 FBCODE5ADT WorldTravellerPlus">
+                            <Code SeatsLeft="9">T</Code>
+                            <MarketingName>World Traveller Plus</MarketingName>
+                        </ClassOfService>
+                    </PriceClass>
+                    <PriceClass PriceClassID="PCR_2">
+                        <Name>Club World</Name>
+                        <ClassOfService refs="BA0035 FBCODE6ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0143 FBCODE7ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0833_DELMAA2018-11-16 FBCODE8ADT">
+                            <Code SeatsLeft="9">P</Code>
+                            <MarketingName>PREMIUMECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0257 FBCODE7ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0833_DELMAA2018-11-17 FBCODE8ADT">
+                            <Code SeatsLeft="9">P</Code>
+                            <MarketingName>PREMIUMECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0036 FBCODE6ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0834 FBCODE7ADT">
+                            <Code SeatsLeft="9">P</Code>
+                            <MarketingName>PREMIUMECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0142 FBCODE8ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0256 FBCODE8ADT ClubWorld">
+                            <Code SeatsLeft="9">I</Code>
+                            <MarketingName>Club World</MarketingName>
+                        </ClassOfService>
+                    </PriceClass>
+                    <PriceClass PriceClassID="PCR_3">
+                        <Name>World Traveller Plus</Name>
+                        <ClassOfService refs="UK0834 FBCODE9ADT">
+                            <Code SeatsLeft="9">T</Code>
+                            <MarketingName>PREMIUMECONOMY</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0256 FBCODE10ADT WorldTravellerPlus">
+                            <Code SeatsLeft="9">W</Code>
+                            <MarketingName>World Traveller Plus</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="BA0036 FBCODE13ADT WorldTravellerPlus">
+                            <Code SeatsLeft="9">W</Code>
+                            <MarketingName>World Traveller Plus</MarketingName>
+                        </ClassOfService>
+                    </PriceClass>
+                    <PriceClass PriceClassID="PCR_4">
+                        <Name>First</Name>
+                        <ClassOfService refs="BA0257 FBCODE11ADT First">
+                            <Code SeatsLeft="9">A</Code>
+                            <MarketingName>First</MarketingName>
+                        </ClassOfService>
+                        <ClassOfService refs="UK0833_DELMAA2018-11-17 FBCODE12ADT">
+                            <Code SeatsLeft="9">T</Code>
+                            <MarketingName>PREMIUMECONOMY</MarketingName>
+                        </ClassOfService>
+                    </PriceClass>
+                </PriceClassList>
+            </DataLists>
+            <Metadata>
+                <Other>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="GBP">
+                                <Decimals>2</Decimals>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                </Other>
+            </Metadata>
+        </AirShoppingRS>
+    </soap:Body>
+</soap:Envelope>

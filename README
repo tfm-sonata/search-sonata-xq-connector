@@ -1,0 +1,2 @@
+This repository is to hold the work done on the connector development for sun express search for the TFM integration.
+This would be a project developed in in GoLang which would be integrated into the TFM platform through AWS Lambda.
