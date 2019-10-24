@@ -8,6 +8,7 @@ import (
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/wsdl2goEdit"
 	"log"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -96,7 +97,7 @@ func interceptRequest(req *http.Request) {
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("api_key", model.RequestConfig.WebserviceAPIKey)
 	req.Header.Set("Content-Type", "text/xml")
-	req.Header.Set("SOAPAction", `"https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort"`) // TODO:need to check
+	req.Header.Set("SOAPAction", strings.Join([]string{"`\"", model.RequestConfig.WebserviceSOAPAction, "\"`"}, ""))
 
 	if cookie != "" {
 		req.Header.Set("Cookie", cookie)
