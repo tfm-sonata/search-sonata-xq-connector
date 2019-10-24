@@ -23218,9 +23218,11 @@ type CabinLayout__1 struct {
 }
 
 type CabinTypeCode__1 struct {
+	Value string `xml:",chardata"`
 }
 
 type CabinTypeName__1 struct {
+	Value string `xml:",chardata"`
 }
 
 type CabinType__2 struct {
