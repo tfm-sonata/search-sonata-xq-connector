@@ -98,7 +98,6 @@ func interceptRequest(req *http.Request) {
 	req.Header.Set("Content-Type", model.RequestConfig.WebServiceContentType)
 	req.Header.Set("Password", model.RequestConfig.WebservicePassword)
 	//req.Header.Set("SOAPAction", strings.Join([]string{"`\"", model.RequestConfig.WebserviceSOAPAction, "\"`"}, ""))
-
 	if cookie != "" {
 		req.Header.Set("Cookie", cookie)
 	}

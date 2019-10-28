@@ -3,7 +3,6 @@ package search
 import (
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/model"
 	"strconv"
-	"time"
 )
 
 type SearchFactory interface {
@@ -16,13 +15,10 @@ type SearchFactoryImpl struct {
 func (*SearchFactoryImpl) createSOAPHeader(config *model.Config) (interface{}, error) {
 	var soapHeader = struct {
 		AirShopingHeader `xml:"tns:AirShopingHeader"`
-	}{
-		AirShopingHeader: AirShopingHeader{},
-	}
+	}{}
 	return soapHeader, nil
 }
 func (*SearchFactoryImpl) CreateAirShoppingRQ(query Query) (*AirShoppingRQ, error) {
-
 	var airShoppingRQVersion = (model.RequestConfig.WebserviceVersion)
 	//var primanryLangID ="EN"
 	//var cabinCode CodesetValueSimpleType = CodesetValueSimpleType(model.RequestConfig.WebserviceCabinCode) //5
@@ -54,7 +50,10 @@ func (*SearchFactoryImpl) CreateAirShoppingRQ(query Query) (*AirShoppingRQ, erro
 			FarePreferences: farePreferences,
 		},*/
 		DataLists: &DataLists__1{
-			PassengerList: &PassengerList__1{Passenger: passengers},
+			PassengerList: &PassengerList__1{
+
+				Passenger: passengers,
+			},
 		},
 	}
 	return airShoppingRQTemp, nil
@@ -115,6 +114,7 @@ func createParty(query Query) (*Party, error) {
 	/*var sequenceNumber int32 = int32(model.RequestConfig.WebserviceSequence)
 	var participantName ProperNameSimpleType = ProperNameSimpleType(model.RequestConfig.WebserviceParticipantName)
 	var systemID UniqueStringID_SimpleType = UniqueStringID_SimpleType(model.RequestConfig.WebserviceSystemID)*/
+
 	//var name ProperNameSimpleType = ProperNameSimpleType("TUI")
 	//var aggrId UniqueStringID_SimpleType = UniqueStringID_SimpleType("00038566")
 
@@ -137,6 +137,22 @@ func createParty(query Query) (*Party, error) {
 			ORA_Recipient: &ORA_Recipient{
 				AirlineMsgPartyCoreType: &AirlineMsgPartyCoreType{
 					AirlineCoreRepType: airlineCoreType,
+				},
+			},*/
+			AgentUserSender: &AgentUserSender{
+				AgentUserMsgPartyCoreType: &AgentUserMsgPartyCoreType{
+					AgentUserType: &AgentUserType{
+						AgentUserID: &AgentUserID__1{
+							UniqueIDContextType: &UniqueIDContextType{
+								Value: agentId,
+							},
+						},
+						AgencyCoreRepType: &AgencyCoreRepType{
+							SellerCoreRepType: &SellerCoreRepType{
+								Name: &name,
+							},
+						},
+					},
 				},
 			},
 		},
@@ -198,20 +214,20 @@ func createParty(query Query) (*Party, error) {
 		//		},
 		//	},
 		//}}}
-		//Recipient: &Recipient__1{
-		//	ORA_Recipient: &ORA_Recipient{
-		//		AirlineMsgPartyCoreType: &AirlineMsgPartyCoreType{
-		//			AirlineCoreRepType: &AirlineCoreRepType{
-		//				AirlineID: &AirlineID{
-		//					AirlineID_Type: &AirlineID_Type{
-		//						Value: airLineID,
-		//					},
-		//				},
-		//				Name: &airLineName,
-		//			},
-		//		},
-		//	},
-		//},
+		Recipient: &Recipient__1{
+			ORA_Recipient: &ORA_Recipient{
+				AirlineMsgPartyCoreType: &AirlineMsgPartyCoreType{
+					AirlineCoreRepType: &AirlineCoreRepType{
+						AirlineID: &AirlineID{
+							AirlineID_Type: &AirlineID_Type{
+								Value: airLineID,
+							},
+						},
+						Name: &airLineName,
+					},
+				},
+			},
+		},
 	}
 	return party, nil
 }
@@ -220,7 +236,7 @@ func createParameters(airShoppingRQ *AirShoppingRQ, query Query) (*AirShoppingRQ
 	return nil, nil
 }
 func createPassangers(query Query) []*PassengerType {
-	passangers := []*PassengerType{}
+	passengers := []*PassengerType{}
 	var adt PassengerTypeCodeType = PassengerTypeCodeType(ADT)
 	var chd PassengerTypeCodeType = PassengerTypeCodeType(CHD)
 	var ift PassengerTypeCodeType = PassengerTypeCodeType(INF)
@@ -247,20 +263,23 @@ func createPassangers(query Query) []*PassengerType {
 			PTC:         &ift,
 		})
 	}
-	return passangers
+	return passengers
 }
 
-func craeteOriginDestinations(query Query) *AirShopReqAttributeQueryType {
+func createOriginDestinations(query Query) *AirShopReqAttributeQueryType {
 
 	var originDestinations *AirShopReqAttributeQueryType
-	var departureAirportCode AirportCitySimpleType = AirportCitySimpleType(query.Origin) //"AMS"
+	//var departureAirportCode AirportCitySimpleType = AirportCitySimpleType(query.Origin) //"AMS"
+	var departureAirportCode AirportCitySimpleType = AirportCitySimpleType("AYT")
 	var departureDate string = string(query.DepDate)
+
 	var returnDate string = string(query.RetDate)                                           //"2019-12-15Z"
 	var arrivalAirportCode AirportCitySimpleType = AirportCitySimpleType(query.Destination) //"LHR"
 	/*var calendarDate CalendarDates__1 = CalendarDates__1{
 		DaysBefore: 0,
 		DaysAfter:  0,
 	}*/
+
 
 	if query.JourneyType == ROUNDTRIP {
 		originDestinations = &AirShopReqAttributeQueryType{
@@ -282,7 +301,6 @@ func craeteOriginDestinations(query Query) *AirShopReqAttributeQueryType {
 						},
 					},
 					//CalendarDates: &calendarDate,
-
 				},
 				{
 					Departure: &Departure{
@@ -320,6 +338,10 @@ func craeteOriginDestinations(query Query) *AirShopReqAttributeQueryType {
 						AirportCode: &AirportCode__2{
 							Value: &arrivalAirportCode,
 						},
+					},
+					CalendarDates: &CalendarDates__1{
+						DaysAfter:  model.RequestConfig.WebserviceDaysAfter,
+						DaysBefore: model.RequestConfig.WebserviceDaysBefore,
 					},
 				},
 			},

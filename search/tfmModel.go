@@ -126,7 +126,7 @@ const (
 	ADT       = "ADT"
 	CHD       = "CHD"
 	INF       = "INF"
-	PAX      =  "PAX"
+	PAX       = "XQ_PAX_"
 	TARIFF_TO = "TO"
 	TARIFF_PU = "PU"
 

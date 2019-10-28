@@ -40,6 +40,11 @@ type Config struct {
 	WebserviceAirLineID       string `json:"WS_AIRLINE_ID"`
 	WebserviceAirLineName     string `json:"WS_AIRLINE_NAME"`
 	WebserviceParticipantName string `json:"WS_PARTICIPANT_NAME"`
+	WebserviceCountryCode     string `json:"WS_COUNTRY_CODE"`
+	WebserviceCityCode        string `json:"WS_CITY_CODE"`
+	WebserviceAgentUserID     string `json:"WS_AGENT_USER_ID"`
+	WebserviceDaysBefore      int32  `json:"WS_DAYS_BEFORE"`
+	WebserviceDaysAfter       int32  `json:"WS_DAYS_AFTER"`
 
 	WebserviceAPIKey                string `json:"WS_API_KEY"`
 	WebserviceSOAPAction            string `json:"WS_SOAP_ACTION"`
