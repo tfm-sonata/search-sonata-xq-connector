@@ -135,11 +135,12 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 	if c.Pre != nil {
 		c.Pre(r)
 	}
-	//printWsdl(req)
+	printWsdl(req)
 	resp, err := cli.Do(r)
 	if err != nil {
 		return err
 	}
+	//writeResponseWsdl(resp.Body)
 	defer resp.Body.Close()
 	if c.Post != nil {
 		c.Post(resp)
@@ -168,23 +169,23 @@ func (c *Client) RoundTrip(in, out Message) error {
 		if c.UserAgent != "" {
 			r.Header.Add("User-Agent", c.UserAgent)
 		}
-		var actionName, soapAction string
+		/*var actionName, soapAction string
 		if in != nil {
 			soapAction = reflect.TypeOf(in).Elem().Name()
-		}
+		}*/
 		ct := c.ContentType
 		if ct == "" {
 			ct = "text/xml"
 		}
 		r.Header.Set("Content-Type", ct)
-		if in != nil {
+		/*if in != nil {
 			if c.ExcludeActionNamespace {
 				actionName = soapAction
 			} else {
 				actionName = fmt.Sprintf("%s/%s", c.Namespace, soapAction)
 			}
 			r.Header.Add("SOAPAction", actionName)
-		}
+		}*/
 	}
 	return doRoundTrip(c, headerFunc, in, out)
 }
@@ -196,20 +197,20 @@ func (c *Client) RoundTripWithAction(soapAction string, in, out Message) error {
 		if c.UserAgent != "" {
 			r.Header.Add("User-Agent", c.UserAgent)
 		}
-		var actionName string
+		//var actionName string
 		ct := c.ContentType
 		if ct == "" {
 			ct = "text/xml"
 		}
 		r.Header.Set("Content-Type", ct)
-		if in != nil {
+		/*if in != nil {
 			if c.ExcludeActionNamespace {
 				actionName = soapAction
 			} else {
 				actionName = fmt.Sprintf("%s/%s", c.Namespace, soapAction)
 			}
 			r.Header.Add("SOAPAction", actionName)
-		}
+		}*/
 	}
 	return doRoundTrip(c, headerFunc, in, out)
 }

@@ -8,7 +8,6 @@ import (
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/wsdl2goEdit"
 	"log"
 	"net/http"
-	"strings"
 	"time"
 )
 
@@ -94,10 +93,11 @@ func (this *SoapHandlerImpl) CreateEmptyTfmResponse() *TfmResponse {
 	return this.tfmMapper.CreateEmptyTfmResponse()
 }
 func interceptRequest(req *http.Request) {
-	req.Header.Set("Accept", "*/*")
-	req.Header.Set("api_key", model.RequestConfig.WebserviceAPIKey)
-	req.Header.Set("Content-Type", "text/xml")
-	req.Header.Set("SOAPAction", strings.Join([]string{"`\"", model.RequestConfig.WebserviceSOAPAction, "\"`"}, ""))
+	//req.Header.Set("Accept", "*/*")
+	req.Header.Set("Username", model.RequestConfig.WebserviceUser)
+	req.Header.Set("Content-Type", model.RequestConfig.WebServiceContentType)
+	req.Header.Set("Password", model.RequestConfig.WebservicePassword)
+	//req.Header.Set("SOAPAction", strings.Join([]string{"`\"", model.RequestConfig.WebserviceSOAPAction, "\"`"}, ""))
 
 	if cookie != "" {
 		req.Header.Set("Cookie", cookie)
