@@ -22,9 +22,9 @@ func TestHandleMessage(t *testing.T) {
 
 	model.RequestConfig = &model.Config{
 		Id:                       "id",
-		WebserviceUrl:            "https://ndc-rct.airfranceklm.com/passenger/distribmgmt/001448v01/EXT?",
-		WebserviceUser:           "w06014962",
-		WebservicePassword:       "TESTPASS",
+		WebserviceUrl:            "https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?",
+		WebserviceUser:           "jetradar",
+		WebservicePassword:       "oPBCDECGZCRA",
 		WebserviceSessionTimeout: "300",
 		WebserviceLevel1:         "NBSO",
 		WebserviceAgent:          "1234",
@@ -38,7 +38,7 @@ func TestHandleMessage(t *testing.T) {
 		WebserviceRelationshipType:      "http://www.af-klm.com/soa/tracking/PrecededBy",
 		WebserviceRelatesToValue:        "89562767-4cbkk-4e90-a159-1070b25992fc",
 		WebserviceMessageId:             "b762bf9e-2487-42a3-bc88-be998364e51d",
-		WebserviceVersion:               "17.1",
+		WebserviceVersion:               "17.2",
 		WebserviceCorrelationID:         "3f9ddd-dc6b-41c9-8d4e-8594182ed050",
 		WebserviceProperName:            "Test",
 		WebservicePseudoCity:            "PARMM211L",
@@ -55,14 +55,14 @@ func TestHandleMessage(t *testing.T) {
 
 	tfmResponse, err := search.HandleMessage(config, `{
        "origin" :"AMS",
-       "depDate":"2019-09-24",
-       "retDate":"2019-09-27",
+       "depDate":"2019-12-12",
+       "retDate":"2019-12-14",
        "destination":"LHR",
        "adult": 2,
        "child":1,
        "infant":1,
        "journeyType":"ROUNDTRIP",
-       "source":"AF"
+       "source":"XQ"
         }`)
 	if err != nil {
 		t.Errorf("createSession() failed.")

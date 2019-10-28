@@ -70,7 +70,7 @@ func TestSoapHandler(t *testing.T) {
        "child":1,
        "infant":1,
        "journeyType":"ROUNDTRIP",
-       "source":"AF"
+       "source":"XQ"
         }`
 
 	var q search.Query

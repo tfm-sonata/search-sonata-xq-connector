@@ -1,6 +1,7 @@
 package search
 
 import (
+	"fmt"
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/util"
 	"log"
 	"regexp"
@@ -13,6 +14,7 @@ var (
 	routes       map[string]Route
 	segments     map[string]Segment
 	priceClasses map[string]PriceClass
+	serviceClass map[string]ServiceClass
 	passengers   map[string]PassengerDetail
 	fareGroupMap map[string]FareGroup
 	ancillaries  map[string]Ancillary
@@ -44,38 +46,46 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	routes = make(map[string]Route)
 	segments = make(map[string]Segment)
 	priceClasses = make(map[string]PriceClass)
+	serviceClass = make(map[string]ServiceClass)
 	passengers = make(map[string]PassengerDetail)
 	ancillaries = make(map[string]Ancillary)
 	fareGroupMap = make(map[string]FareGroup)
 
 	loadRouteMap(rs, routes)
 	loadSegmentMap(rs.DataLists.FlightSegmentList.FlightSegment, segments)
-	loadFareGroupMap(rs.DataLists.FareList.FareGroup, fareGroupMap)
-	loadPriceClassMap(rs.DataLists.PriceClassList.PriceClass, priceClasses)
-
+	//loadFareGroupMap(rs.DataLists.FareList.FareGroup, fareGroupMap)
+	//loadPriceClassMap(rs.DataLists.PriceClassList.PriceClass, priceClasses)
+	//loadServiceClassMap(rs.DataLists.FlightSegmentList.FlightSegment, serviceClass)
 	loadPassengerMap(rs.DataLists.PassengerList.Passenger, passengers)
 	log.Println("Mapping AirShoppingRS to tfmModel..")
 
 	var combinations = []Combination{}
+	totalFareAmount := float64(0)
+	totalTaxAmount := float64(0)
 	createDefaultHandBaggage()
 
 	combinationCounter := 0
+
 	for _, airlineOffer := range rs.OffersGroup.AirlineOffers {
 
 		for _, offer := range airlineOffer.Offer {
-			var isValidPriceClassCombination bool = true
+			//var isValidPriceClassCombination bool = true
 			owner := string(*offer.Owner)
 			log.Println("Fares for Airline :", owner)
-			vcc := "BA"
+			vcc := "BV"
 			//vcc := string(*offer.ValidatingCarrier)
 
 			if combinationCounter < 50 {
-				totalFareAmount := offer.TotalPrice.SimpleCurrencyPrice.Value
-				var totalTaxAmount float64 = 0
+				var offerItemTotalFare float64 = 0
+				var offerItemTotalTax float64 = 0
 				for _, offerItem := range offer.OfferItem {
-
-					totalTaxAmount = totalTaxAmount + offerItem.FareDetail[0].Price.Taxes.Total.Value
+					offerItemTotalFare = offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Total.Value
+					offerItemTotalTax = offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Taxes.Total.Value
 				}
+
+				totalTaxAmount = totalTaxAmount + offerItemTotalTax
+				totalFareAmount = totalFareAmount + offerItemTotalFare
+
 				//create combination
 				combination := Combination{}
 				additionalParams := make(map[string]string)
@@ -84,37 +94,37 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				combination.TotalTaxAmount = totalTaxAmount
 
 				//add route references
-				for _, flightservice := range offer.OfferItem[0].Service {
-					combination.RouteIDs = append(combination.RouteIDs, string(flightservice.FlightRefs))
+				for _, flightservice := range rs.DataLists.FlightList.Flight {
+					combination.RouteIDs = append(combination.RouteIDs, string(*flightservice.FlightKey))
 				}
 				offerItemIdsValues := []string{}
 				for _, offerItem := range offer.OfferItem {
-					if len(offerItem.FareDetail[0].FareComponent) > 1 {
+					/*	if len(offerItem.FareDetail[0].FareComponent) > 1 {
 						isValidPriceClassCombination = validatePriceClassCombination(string(offerItem.FareDetail[0].FareComponent[0].PriceClassRef),
 							string(offerItem.FareDetail[0].FareComponent[1].PriceClassRef))
-					}
-					if isValidPriceClassCombination {
-						combination.Fares = createFares(*offerItem, combination.Fares, vcc)
-						additionalParamsValue := (string(offerItem.OfferItemID))
-						offerItemIdsValues = append(offerItemIdsValues, additionalParamsValue)
-						additionalParams[string(offerItem.OfferItemID)] = strings.Trim(string(offerItem.Service[0].PassengerRefs), " ")
-					} else {
+					}*/
+					//if isValidPriceClassCombination {
+					combination.Fares = createFares(*offerItem, combination.Fares, vcc)
+					additionalParamsValue := (string(offerItem.OfferItemID))
+					offerItemIdsValues = append(offerItemIdsValues, additionalParamsValue)
+					additionalParams[string(offerItem.OfferItemID)] = strings.Trim(string(offerItem.FareDetail[0].PassengerRefs.Value), " ")
+					/*} else {
 						log.Println("mismtach in price classes skipping the offer ", string(offer.OfferID))
 						break
-					}
+					}*/
 				}
-				if isValidPriceClassCombination {
-					offerItemIds := strings.Join(offerItemIdsValues, ",")
-					additionalParams["offerId"] = string(offer.OfferID)
-					additionalParams["offerItemIds"] = offerItemIds
-					//additionalParams["offerValidity"] = offer.OfferExpirationDateTime.Value
-					combination.AdditionalParams = additionalParams
-					combinationCounter++
-					combinations = append(combinations, combination)
-				}
-			} else {
+				//if isValidPriceClassCombination {
+				offerItemIds := strings.Join(offerItemIdsValues, ",")
+				additionalParams["offerId"] = string(offer.OfferID)
+				additionalParams["offerItemIds"] = offerItemIds
+				//additionalParams["offerValidity"] = offer.OfferExpirationDateTime.Value
+				combination.AdditionalParams = additionalParams
+				combinationCounter++
+				combinations = append(combinations, combination)
+				//}
+			} /*else {
 				break
-			}
+			}*/
 		}
 
 	}
@@ -122,7 +132,7 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	additionalParams := make(map[string]string)
 	//additionalParams["afklmSearch.conversationToken"] = conversationToken
 	//additionalParams["afklmSearch.cookie"] = cookie
-	additionalParams["responseId"] = string(*rs.ShoppingResponseID.ResponseID.Value)
+	additionalParams["responseId"] = "NA"
 
 	var ancillaryList []Ancillary
 	for _, ancillary := range ancillaries {
@@ -198,25 +208,6 @@ func loadPriceClassMap(priceClassList []*PriceClassType, priceClassMap map[strin
 
 	return priceClassMap
 }
-
-func loadPassengerMap(passengerTypeList []*PassengerType, passengerMap map[string]PassengerDetail) map[string]PassengerDetail {
-	for _, passengerType := range passengerTypeList {
-		passenger := createPassenger(passengerType)
-		passengerMap[passenger.Id] = passenger
-	}
-
-	return passengerMap
-}
-
-func createPassenger(passengerType *PassengerType) PassengerDetail {
-	passengerDetail := PassengerDetail{
-		Id:   string(passengerType.PassengerID),
-		Type: string(*passengerType.PTC), //TODO might have to add a switch case based setting
-	}
-
-	return passengerDetail
-}
-
 func createPriceClass(priceClassType *PriceClassType) PriceClass {
 	var serviceClassList []ServiceClass
 	for _, classOfService := range priceClassType.ClassOfService {
@@ -230,20 +221,6 @@ func createPriceClass(priceClassType *PriceClassType) PriceClass {
 	}
 
 	return priceClass
-}
-
-func getCabinProduct(airlineCabinProduct string) string {
-	/*var cabinProduct string
-
-	switch airlineCabinProduct {
-	case KLM_FLEX:
-		cabinProduct = CABIN_ECONOMY
-	case AF_ECONOMY_BASIC:
-		cabinProduct = CABIN_ECONOMY
-	//default:
-	//	cabinProduct = CABIN_ECONOMY
-	}*/
-	return airlineCabinProduct
 }
 func createServiceClass(classOfService ClassOfService) ServiceClass {
 
@@ -267,28 +244,108 @@ func createServiceClass(classOfService ClassOfService) ServiceClass {
 	return serviceClass
 }
 
+/*func loadServiceClassMap(serviceClassList []*ListOfFlightSegmentType, serviceClassMap map[string]ServiceClass) map[string]ServiceClass {
+	for _, serviceClass := range serviceClassList {
+		serviceClass := createServicesClass(serviceClass)
+		serviceClassMap[serviceClass.Id] = serviceClass
+	}
+
+	return serviceClassMap
+}*/
+/*func createServicesClass(serviceType *ListOfFlightSegmentType)ServiceClass{
+	//var fareBaseGroup []FareGroup
+
+
+	serviceClass := ServiceClass{
+		Id: "nil",
+		Code:string(*serviceType.ClassOfService.Code.Value),
+		MarketingName:string(*serviceType.ClassOfService.MarketingName.Value),
+	}
+	return serviceClass
+}*/
+
+func loadPassengerMap(passengerTypeList []*PassengerType, passengerMap map[string]PassengerDetail) map[string]PassengerDetail {
+	for _, passengerType := range passengerTypeList {
+		passenger := createPassenger(passengerType)
+		passengerMap[passenger.Id] = passenger
+	}
+
+	return passengerMap
+}
+
+func createPassenger(passengerType *PassengerType) PassengerDetail {
+	passengerDetail := PassengerDetail{
+		Id:   string(passengerType.PassengerID),
+		Type: string(*passengerType.PTC), //TODO might have to add a switch case based setting
+	}
+
+	return passengerDetail
+}
+
+/*func createServicesClass(serviceClassType *ListOfFlightSegmentType) ServiceClass {
+	var fareGroupList []FareGroup
+	serviceClassess:= serviceClassType.ClassOfService.FareBasisCode
+
+	fareGroupList = append(fareGroupList, createFareGroup(*serviceClassess))
+
+	serviceClass := ServiceClass{
+		FareBaseGroup: serviceClassList,
+	}
+
+	return serviceClass
+}*/
+
+/*func createFareClass(classOfService ClassOfService) ServiceClass {
+
+	var fareGroupList []FareGroup
+	classOfServiceRefs := string(*classOfService.Refs)
+	cosRefItems := strings.Split(classOfServiceRefs, " ")
+
+	for _, cosRefItem := range cosRefItems {
+		if strings.Contains(cosRefItem, FARE_BASE_CODE_PREFIX) {
+			fareGroupList = append(fareGroupList, fareGroupMap[cosRefItem])
+		}
+	}
+
+	serviceClass := ServiceClass{
+		Id:            classOfServiceRefs,
+		Code:          string(*classOfService.Code.Value),
+		MarketingName: string(*classOfService.MarketingName.Value),
+		FareBaseGroup: fareGroupList,
+	}
+
+	return serviceClass
+}*/
+
 func createSegment(segment *ListOfFlightSegmentType) Segment {
-	var departureTerminalName = ""
+	/*var departureTerminalName = ""
+
 	if segment.Departure.FlightDepartureType != nil && segment.Departure.FlightDepartureType.Terminal != nil {
 		departureTerminalName = string(*segment.Departure.FlightDepartureType.Terminal.Name)
 	}
 	var arrivalTerminalName = ""
+
 	if segment.Arrival != nil && segment.Arrival.Terminal != nil {
 		arrivalTerminalName = string(*segment.Arrival.Terminal.Name)
-	}
-	s := Segment{
-		Id:                  string(*segment.SegmentKey),
-		Origin:              string(*segment.Departure.AirportCode.Value),
-		OriginTerminal:      departureTerminalName,
-		Destination:         string(*segment.Arrival.AirportCode.Value),
-		DestinationTerminal: arrivalTerminalName,
-		FlightNumber:        string(segment.MarketingCarrier.FlightNumber.Value),
-		MarketingCarrier:    string(segment.MarketingCarrier.AirlineID.Value),
-		OperationCarrier:    string(segment.OperatingCarrier.AirlineID.Value),
-	}
+	}*/
 
-	s.DepartureTime = string(segment.Departure.Date) + "T" + string(*segment.Departure.Time)
-	s.ArrivalTime = string(segment.Arrival.Date) + "T" + string(*segment.Arrival.Time)
+	s := Segment{
+		Id:     string(*segment.SegmentKey),
+		Origin: string(*segment.Departure.AirportCode.Value),
+		//OriginTerminal:      departureTerminalName,
+		Destination: string(*segment.Arrival.AirportCode.Value),
+		//DestinationTerminal: arrivalTerminalName,
+		FlightNumber:     string(segment.MarketingCarrier.FlightNumber.Value),
+		MarketingCarrier: string(segment.MarketingCarrier.AirlineID.Value),
+		//OperationCarrier:    string(segment.OperatingCarrier.AirlineID.Value),
+
+	}
+	//
+	//s.DepartureTime = (segment.Departure.Date)
+	//s.ArrivalTime = (segment.Arrival.Date)
+
+	s.DepartureTime = (segment.Departure.Date) + "T" + string(*segment.Departure.Time)
+	s.ArrivalTime = (segment.Arrival.Date) + "T" + string(*segment.Arrival.Time)
 
 	return s
 }
@@ -317,10 +374,12 @@ func createFares(offerItem OfferItemType, fares []TfmFare, vcc string) []TfmFare
 
 func createPassengerFare(offerItem OfferItemType, paxRef string, vcc string) TfmFare {
 	var fareProducts []FareProduct
+	a := passengers[paxRef].Type
+	fmt.Println("", a)
 	tfmFare := TfmFare{
 		PaxId:        paxRef,
 		PaxType:      passengers[paxRef].Type,
-		FareAmount:   offerItem.FareDetail[0].Price.BaseAmount.Value,
+		FareAmount:   offerItem.FareDetail[0].Price.TotalAmount.DetailCurrencyPrice.Total.Value,
 		TaxAmount:    util.Round(offerItem.FareDetail[0].Price.Taxes.Total.Value, 100),
 		FareProducts: createFareProducts(*offerItem.FareDetail[0], fareProducts, paxRef),
 		Vcc:          vcc,
@@ -343,30 +402,19 @@ func createFareProducts(fareDetail FareDetailType, fareProducts []FareProduct, p
 }
 
 func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRef string) FareProduct {
-	var priceClassRef string = string(fareComponent.PriceClassRef)
+	//var serviceClassRef string = string(fareComponent.SegmentRefs.Value)
+
 	var defaultAncillaries []string
 	var fareProductFinal FareProduct
 	defaultAncillaries = append(defaultAncillaries, ancillaries[DEFAULT_HAND_BAGGAGE].Id)
-	var priceClass = priceClasses[priceClassRef] //PCR_1
+	//var serviceClass = serviceClass[serviceClassRef]
+	var cabinProduct string = string(fareComponent.FareBasis.CabinType.CabinTypeName.Value)
 
-	for _, classOfServiceEntry := range priceClass.ServiceClassList {
-		if strings.Contains(classOfServiceEntry.Id, segmentRef) {
-			fareList := strings.Split(classOfServiceEntry.Id, " ") ///////////////////rename////////////////////////////////////////////////////////rename
-
-			for _, fareitem := range fareList {
-
-				if strings.Contains(fareitem, FARE_BASE_CODE_PREFIX) {
-					var fareGroup = fareGroupMap[fareitem]
-					fareProductFinal = FareProduct{
-						SegmentID:    segmentRef,
-						CabinProduct: classOfServiceEntry.MarketingName,
-						FareBase:     fareGroup.FareBasisCode,
-						AncillaryIDs: defaultAncillaries,
-					}
-				}
-
-			}
-		}
+	fareProductFinal = FareProduct{
+		SegmentID:    segmentRef,
+		CabinProduct: cabinProduct,
+		FareBase:     string(*fareComponent.FareBasis.FareBasisCode.Refs),
+		AncillaryIDs: defaultAncillaries,
 	}
 
 	return fareProductFinal
