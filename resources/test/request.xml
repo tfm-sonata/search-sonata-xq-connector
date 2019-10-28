@@ -1,0 +1,96 @@
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://interes.com/clients/tui/queueschubser/service/v140/types" xmlns:tns="http://interes.com/clients/tui/queueschubser/service/v140/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://interes.com/clients/tui/webservice/types/v140">
+      <SOAP-ENV:Header>
+          <trackingMessageHeader xmlns="http://www.af-klm.com/soa/xsd/MessageHeader-V1_0">
+              <consumerRef xmlns="http://www.af-klm.com/soa/xsd/MessageHeader-V1_0">
+                  <userID>w06014962</userID>
+                  <partyID>MASHERY</partyID>
+                  <consumerID>w06014962</consumerID>
+                  <consumerLocation>External</consumerLocation>
+                  <consumerType>A</consumerType>
+                  <consumerTime>2019-09-18T18:19:49</consumerTime>
+              </consumerRef>
+          </trackingMessageHeader>
+          <MessageID xmlns="http://www.w3.org/2005/08/addressing">b762bf9e-2487-42a3-bc88-be998364e51d</MessageID>
+          <RelatesTo xmlns="http://www.w3.org/2005/08/addressing" RelationshipType="http://www.af-klm.com/soa/tracking/PrecededBy">89562767-4cbkk-4e90-a159-1070b25992fc</RelatesTo>
+      </SOAP-ENV:Header>
+      <SOAP-ENV:Body>
+          <AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST/2017.1" Version="17.1" CorrelationID="3f9ddd-dc6b-41c9-8d4e-8594182ed050">
+              <PointOfSale xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                  <RequestTime>2019-09-18T18:19:49</RequestTime>
+              </PointOfSale>
+              <Document xmlns="http://www.iata.org/IATA/EDIST/2017.1"></Document>
+              <Party xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                  <Sender>
+                      <TravelAgencySender xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                          <Name>Test</Name>
+                          <PseudoCity xmlns="http://www.iata.org/IATA/EDIST/2017.1">PARMM211L</PseudoCity>
+                          <IATA_Number>12345675</IATA_Number>
+                          <AgencyID xmlns="http://www.iata.org/IATA/EDIST/2017.1">id</AgencyID>
+                          <AgentUser xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                              <AgentUserID>1234</AgentUserID>
+                          </AgentUser>
+                      </TravelAgencySender>
+                  </Sender>
+                  <Participants>
+                      <Participant>
+                          <EnabledSystemParticipant xmlns="http://www.iata.org/IATA/EDIST/2017.1" SequenceNumber="12">
+                              <Name>MASHERY</Name>
+                              <SystemID xmlns="http://www.iata.org/IATA/EDIST/2017.1">MAS</SystemID>
+                          </EnabledSystemParticipant>
+                      </Participant>
+                  </Participants>
+                  <Recipient>
+                      <ORA_Recipient xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                          <AirlineID xmlns="http://www.iata.org/IATA/EDIST/2017.1">AF</AirlineID>
+                          <Name>AIRFRANCE</Name>
+                      </ORA_Recipient>
+                  </Recipient>
+              </Party>
+              <CoreQuery>
+                  <OriginDestinations xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                      <OriginDestination>
+                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                              <AirportCode>AMS</AirportCode>
+                              <Date>2019-09-18</Date>
+                          </Departure>
+                          <Arrival xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                              <AirportCode>LHR</AirportCode>
+                          </Arrival>
+                      </OriginDestination>
+                      <OriginDestination>
+                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                              <AirportCode>LHR</AirportCode>
+                              <Date>2019-09-19</Date>
+                          </Departure>
+                          <Arrival xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                              <AirportCode>AMS</AirportCode>
+                          </Arrival>
+                      </OriginDestination>
+                  </OriginDestinations>
+              </CoreQuery>
+              <Preference>
+                  <CabinPreferences xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                      <CabinType xmlns="http://www.iata.org/IATA/EDIST/2017.1">
+                          <Code>5</Code>
+                      </CabinType>
+                  </CabinPreferences>
+              </Preference>
+              <DataLists>
+                  <PassengerList>
+                      <Passenger>
+                          <PTC>ADT</PTC>
+                      </Passenger>
+                      <Passenger>
+                          <PTC>ADT</PTC>
+                      </Passenger>
+                      <Passenger>
+                          <PTC>CHD</PTC>
+                      </Passenger>
+                      <Passenger>
+                          <PTC>INF</PTC>
+                      </Passenger>
+                  </PassengerList>
+              </DataLists>
+          </AirShoppingRQ>
+      </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>

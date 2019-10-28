@@ -1,0 +1,47 @@
+service: search-sonata-xq-connector # NOTE: update this with your service name
+#frameworkVersion: ">=1.28.0 <2.0.0"
+
+provider:
+  name: aws
+  region: eu-central-1
+  profile: ${env:profile}
+  stage: ${env:stage}
+  runtime: go1.x
+  stackName: ${env:stack}
+  role:  'arn:aws:iam::${env:accountNo}:role/${env:role}'
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource: "*"
+  vpc:
+    securityGroupIds:
+      - ${env:sg1}
+      - ${env:sg2}
+    subnetIds:
+      - ${env:sn1}
+      - ${env:sn2}
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+functions:
+  main:
+    handler: bin/main
+    name: ${env:name}
+    memorySize: 256
+    timeout: 20
+    cfLogs: true
+    tags:
+      version: ${env:version}
+      Environment: ${env:environment}
+        # events:
+        #- sqs:
+        #  arn: arn:aws:sqs:eu-central-1:${env:accountNo}:${env:queue_in}
+      #  batchSize: 1
+    environment:
+      SERVICENAME: ${env:service_name}
+      CONFIG_PROVIDER: ${env:config_provider}
+
+
