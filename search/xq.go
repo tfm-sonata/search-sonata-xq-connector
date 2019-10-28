@@ -27748,7 +27748,7 @@ func (service *ndcResService17_2Port) ShopAir(request *AirShoppingRQ) (*AirShopp
 		AirShoppingResponse `xml:"AirShoppingResponse"`
 	}{}
 
-	if err := service.client.RoundTripWithAction("https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort", α, &γ); err != nil {
+	if err := service.client.RoundTripWithAction("https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?", α, &γ); err != nil {
 		return nil, err
 	}
 	//log.Print("response")

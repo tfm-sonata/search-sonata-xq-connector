@@ -93,11 +93,11 @@ func (this *SoapHandlerImpl) CreateEmptyTfmResponse() *TfmResponse {
 	return this.tfmMapper.CreateEmptyTfmResponse()
 }
 func interceptRequest(req *http.Request) {
-	req.Header.Set("Accept", "*/*")
-	req.Header.Set("Username", "jetradar")
-	req.Header.Set("Content-Type", "text/xml")
-	req.Header.Set("Password", "oPBCDECGZCRA")
-	//req.Header.Set("SOAPAction", `"https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort"`) // TODO:need to check
+	//req.Header.Set("Accept", "*/*")
+	req.Header.Set("Username", model.RequestConfig.WebserviceUser)
+	req.Header.Set("Content-Type", model.RequestConfig.WebServiceContentType)
+	req.Header.Set("Password", model.RequestConfig.WebservicePassword)
+	//req.Header.Set("SOAPAction", strings.Join([]string{"`\"", model.RequestConfig.WebserviceSOAPAction, "\"`"}, ""))
 
 	if cookie != "" {
 		req.Header.Set("Cookie", cookie)

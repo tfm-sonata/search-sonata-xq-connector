@@ -52,4 +52,10 @@ type Config struct {
 	WebserviceFarePreferencesCode   string `json:"WS_FAREPREFERENCES_CODE"`
 	WebserviceFareCode              string `json:"WS_FARE_CODE"`
 	WebserviceCabinCode             string `json:"WS_CABIN_CODE"`
+
+	WebServiceRequestCountryCode string `json:"WS_RQ_COUNTRY_CODE"`
+	WebServiceRequestCityCode    string `json:"WS_RQ_CITY_CODE"`
+	WebServiceDocumentName       string `json:"WS_DOC_NAME"`
+	WebServiceContentType        string `json:"WS_CONTENT_TYPE"`
+	WebServiceSenderName         string `json:"WS_SENDER_NAME"`
 }
