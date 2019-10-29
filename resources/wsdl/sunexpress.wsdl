@@ -1,0 +1,378 @@
+<definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ibsplc.com/wsdl/ndc" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ndc="http://www.iata.org/IATA/EDIST/2017.2" xmlns="http://schemas.xmlsoap.org/wsdl/" name="NdcService" targetNamespace="http://www.ibsplc.com/wsdl/ndc">
+
+
+<types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.ibsplc.com/wsdl/ndc" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ndc="http://www.iata.org/IATA/EDIST/2017.2" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.iata.org/IATA/EDIST/2017.2">
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/AirShoppingRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/AirShoppingRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageAllowanceRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageAllowanceRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/ServiceListRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/ServiceListRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderCreateRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderViewRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderRetrieveRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/FareRulesRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/FareRulesRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderListRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderListRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/AirDocDisplayRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/AirDocDisplayRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/SeatAvailabilityRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/SeatAvailabilityRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OfferPriceRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OfferPriceRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageListRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageListRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageChargesRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/BaggageChargesRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/InvGuaranteeRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/InvGuaranteeRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/InvReleaseNotif.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/Acknowledgement.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderCancelRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderCancelRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderChangeRQ.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderReshopRS.xsd"/>
+<xs:include schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/OrderReshopRQ.xsd"/>
+<xs:import namespace="http://www.ibsplc.com/iFlyRes/simpleTypes/2017.2" schemaLocation="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?xsd=../../xsd/ndcres/_17_2/res_commontypes.xsd"/>
+</xs:schema>
+</types>
+
+
+<message name="shopAirRequest">
+<part element="ndc:AirShoppingRQ" name="parameters"> </part>
+</message>
+<message name="orderCreateRequest">
+<part element="ndc:OrderCreateRQ" name="parameters"> </part>
+</message>
+<message name="invGuaranteeRequest">
+<part element="ndc:InvGuaranteeRQ" name="parameters"> </part>
+</message>
+<message name="baggageChargeRequest">
+<part element="ndc:BaggageChargesRQ" name="parameters"> </part>
+</message>
+<message name="orderCancelRequest">
+<part element="ndc:OrderCancelRQ" name="parameters"> </part>
+</message>
+<message name="baggageAllowanceRequest">
+<part element="ndc:BaggageAllowanceRQ" name="parameters"> </part>
+</message>
+<message name="orderReshopResponse">
+<part element="ndc:OrderReshopRS" name="parameters"> </part>
+</message>
+<message name="acknowledgement">
+<part element="ndc:Acknowledgement" name="parameters"> </part>
+</message>
+<message name="invReleaseNotif">
+<part element="ndc:InvReleaseNotif" name="parameters"> </part>
+</message>
+<message name="serviceListResponse">
+<part element="ndc:ServiceListRS" name="parameters"> </part>
+</message>
+<message name="airDocDisplayRequest">
+<part element="ndc:AirDocDisplayRQ" name="parameters"> </part>
+</message>
+<message name="baggageAllowanceResponse">
+<part element="ndc:BaggageAllowanceRS" name="parameters"> </part>
+</message>
+<message name="fareRulesResponse">
+<part element="ndc:FareRulesRS" name="parameters"> </part>
+</message>
+<message name="orderCancelResponse">
+<part element="ndc:OrderCancelRS" name="parameters"> </part>
+</message>
+<message name="offerPriceResponse">
+<part element="ndc:OfferPriceRS" name="parameters"> </part>
+</message>
+<message name="offerPriceRequest">
+<part element="ndc:OfferPriceRQ" name="parameters"> </part>
+</message>
+<message name="orderChangeRequest">
+<part element="ndc:OrderChangeRQ" name="parameters"> </part>
+</message>
+<message name="seatAvailabilityRequest">
+<part element="ndc:SeatAvailabilityRQ" name="parameters"> </part>
+</message>
+<message name="orderListRequest">
+<part element="ndc:OrderListRQ" name="parameters"> </part>
+</message>
+<message name="invGuaranteeResponse">
+<part element="ndc:InvGuaranteeRS" name="parameters"> </part>
+</message>
+<message name="serviceListRequest">
+<part element="ndc:ServiceListRQ" name="parameters"> </part>
+</message>
+<message name="orderListResponse">
+<part element="ndc:OrderListRS" name="parameters"> </part>
+</message>
+<message name="baggageListResponse">
+<part element="ndc:BaggageListRS" name="parameters"> </part>
+</message>
+<message name="fareRulesRequest">
+<part element="ndc:FareRulesRQ" name="parameters"> </part>
+</message>
+<message name="airDocDisplayResponse">
+<part element="ndc:AirDocDisplayRS" name="parameters"> </part>
+</message>
+<message name="baggageListRequest">
+<part element="ndc:BaggageListRQ" name="parameters"> </part>
+</message>
+<message name="baggageChargeResponse">
+<part element="ndc:BaggageChargesRS" name="parameters"> </part>
+</message>
+<message name="shopAirResponse">
+<part element="ndc:AirShoppingRS" name="parameters"> </part>
+</message>
+<message name="orderViewResponse">
+<part element="ndc:OrderViewRS" name="parameters"> </part>
+</message>
+<message name="seatAvailabilityResponse">
+<part element="ndc:SeatAvailabilityRS" name="parameters"> </part>
+</message>
+<message name="orderReshopRequest">
+<part element="ndc:OrderReshopRQ" name="parameters"> </part>
+</message>
+<message name="orderRetrieveRequest">
+<part element="ndc:OrderRetrieveRQ" name="parameters"> </part>
+</message>
+
+
+
+<portType name="NdcResService17_2Port">
+<operation name="shopAir">
+<input message="tns:shopAirRequest"> </input>
+<output message="tns:shopAirResponse"> </output>
+</operation>
+<operation name="releaseInventory">
+<input message="tns:invReleaseNotif"> </input>
+<output message="tns:acknowledgement"> </output>
+</operation>
+<operation name="guaranteeInventory">
+<input message="tns:invGuaranteeRequest"> </input>
+<output message="tns:invGuaranteeResponse"> </output>
+</operation>
+<operation name="getBaggageAllowance">
+<input message="tns:baggageAllowanceRequest"> </input>
+<output message="tns:baggageAllowanceResponse"> </output>
+</operation>
+<operation name="listServices">
+<input message="tns:serviceListRequest"> </input>
+<output message="tns:serviceListResponse"> </output>
+</operation>
+<operation name="createOrder">
+<input message="tns:orderCreateRequest"> </input>
+<output message="tns:orderViewResponse"> </output>
+</operation>
+<operation name="retrieveOrder">
+<input message="tns:orderRetrieveRequest"> </input>
+<output message="tns:orderViewResponse"> </output>
+</operation>
+<operation name="fareRules">
+<input message="tns:fareRulesRequest"> </input>
+<output message="tns:fareRulesResponse"> </output>
+</operation>
+<operation name="listOrder">
+<input message="tns:orderListRequest"> </input>
+<output message="tns:orderListResponse"> </output>
+</operation>
+<operation name="showSeatAvailability">
+<input message="tns:seatAvailabilityRequest"> </input>
+<output message="tns:seatAvailabilityResponse"> </output>
+</operation>
+<operation name="airDocDisplay">
+<input message="tns:airDocDisplayRequest"> </input>
+<output message="tns:airDocDisplayResponse"> </output>
+</operation>
+<operation name="getBaggageList">
+<input message="tns:baggageListRequest"> </input>
+<output message="tns:baggageListResponse"> </output>
+</operation>
+<operation name="getBaggageCharge">
+<input message="tns:baggageChargeRequest"> </input>
+<output message="tns:baggageChargeResponse"> </output>
+</operation>
+<operation name="offerPrice">
+<input message="tns:offerPriceRequest"> </input>
+<output message="tns:offerPriceResponse"> </output>
+</operation>
+<operation name="orderCancel">
+<input message="tns:orderCancelRequest"> </input>
+<output message="tns:orderCancelResponse"> </output>
+</operation>
+<operation name="orderChange">
+<input message="tns:orderChangeRequest"> </input>
+<output message="tns:orderViewResponse"> </output>
+</operation>
+<operation name="orderReshop">
+<input message="tns:orderReshopRequest"> </input>
+<output message="tns:orderReshopResponse"> </output>
+</operation>
+</portType>
+
+
+<binding name="NdcResService172SOAPBinding" type="tns:NdcResService17_2Port">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="shopAir">
+<soap:operation soapAction="shopAir"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="releaseInventory">
+<soap:operation soapAction="releaseInventory"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="guaranteeInventory">
+<soap:operation soapAction="guaranteeInventory"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="createOrder">
+<soap:operation soapAction="createOrder"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBaggageAllowance">
+<soap:operation soapAction="getBaggageAllowance"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listServices">
+<soap:operation soapAction="listServices"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="retrieveOrder">
+<soap:operation soapAction="retrieveOrder"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="fareRules">
+<soap:operation soapAction="fareRules"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="listOrder">
+<soap:operation soapAction="listOrder"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="showSeatAvailability">
+<soap:operation soapAction="showSeatAvailability"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="airDocDisplay">
+<soap:operation soapAction="airDocDisplay"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBaggageList">
+<soap:operation soapAction="getBaggageList"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBaggageCharge">
+<soap:operation soapAction="getBaggageCharge"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="offerPrice">
+<soap:operation soapAction="offerPrice"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="orderCancel">
+<soap:operation soapAction="orderCancel"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="orderChange">
+<soap:operation soapAction="orderChange"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="orderReshop">
+<soap:operation soapAction="orderReshop"/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+
+
+
+<service name="NdcRes172Service">
+<port binding="tns:NdcResService172SOAPBinding" name="NdcResService172SOAPPort">
+<soap:address location="https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort"/>
+</port>
+</service>
+</definitions>
