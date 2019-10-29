@@ -1,0 +1,61 @@
+  <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://interes.com/clients/tui/queueschubser/service/v140/types" xmlns:tns="http://interes.com/clients/tui/queueschubser/service/v140/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://interes.com/clients/tui/webservice/types/v140">
+      <SOAP-ENV:Header></SOAP-ENV:Header>
+      <SOAP-ENV:Body>
+          <AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST/2017.2" Version="17.2">
+              <PointOfSale>
+                  <Location>
+                      <CountryCode xmlns="http://www.iata.org/IATA/EDIST/2017.2">TR</CountryCode>
+                      <CityCode xmlns="http://www.iata.org/IATA/EDIST/2017.2">City</CityCode>
+                  </Location>
+                  <RequestTime>2019-10-29T17:46:11</RequestTime>
+              </PointOfSale>
+              <Document>
+                  <Name>NDC</Name>
+                  <ReferenceVersion>17.2</ReferenceVersion>
+              </Document>
+              <Party>
+                  <Sender>
+                      <AgentUserSender>
+                          <Name>Guest Website</Name>
+                          <AgentUserID>JETRADAR</AgentUserID>
+                      </AgentUserSender>
+                  </Sender>
+                  <Recipient>
+                      <ORA_Recipient>
+                          <AirlineID xmlns="http://www.iata.org/IATA/EDIST/2017.2">XQ</AirlineID>
+                          <Name>Sun Express</Name>
+                      </ORA_Recipient>
+                  </Recipient>
+              </Party>
+              <CoreQuery>
+                  <OriginDestinations>
+                      <OriginDestination>
+                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.2">
+                              <AirportCode>AYT</AirportCode>
+                              <Date>2019-11-23</Date>
+                          </Departure>
+                          <Arrival>
+                              <AirportCode>FRA</AirportCode>
+                          </Arrival>
+                      </OriginDestination>
+                      <OriginDestination>
+                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.2">
+                              <AirportCode>FRA</AirportCode>
+                              <Date>2019-11-28</Date>
+                          </Departure>
+                          <Arrival>
+                              <AirportCode>AYT</AirportCode>
+                          </Arrival>
+                      </OriginDestination>
+                  </OriginDestinations>
+              </CoreQuery>
+              <DataLists>
+                  <PassengerList>
+                      <Passenger PassengerID="XQ_XQ_PAX__1">
+                          <PTC>ADT</PTC>
+                      </Passenger>
+                  </PassengerList>
+              </DataLists>
+          </AirShoppingRQ>
+      </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
