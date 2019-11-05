@@ -11,16 +11,19 @@ import (
 )
 
 var (
-	routes       map[string]Route
-	segments     map[string]Segment
-	priceClasses map[string]PriceClass
-	serviceClass map[string]ServiceClass
-	passengers   map[string]PassengerDetail
-	fareGroupMap map[string]FareGroup
-	ancillaries  map[string]Ancillary
-	hourRegex    *regexp.Regexp
-	minuteRegex  *regexp.Regexp
-	dayRegex     *regexp.Regexp
+	routes                   map[string]Route
+	segments                 map[string]Segment
+	priceClasses             map[string]PriceClass
+	serviceClass             map[string]ServiceClass
+	passengers               map[string]PassengerDetail
+	fareGroupMap             map[string]FareGroup
+	ancillaries              map[string]Ancillary
+	OfferMetaDataMap         map[string]string
+	fareComponentAugPointMap map[string]FareComponentAugPointMetadata
+	fareDetailAugPointMap    map[string]FareDetailAugPointMetadata
+	hourRegex                *regexp.Regexp
+	minuteRegex              *regexp.Regexp
+	dayRegex                 *regexp.Regexp
 )
 
 func init() {
@@ -30,7 +33,7 @@ func init() {
 }
 
 type TfmMapper interface {
-	CreateTFMResponse(rs *AirShoppingRS, conversationToken string, cookie string, responseTime time.Duration, responseId string) (*TfmResponse, error)
+	CreateTFMResponse(rs *AirShoppingRS, conversationToken string, cookie string, responseTime time.Duration) (*TfmResponse, error)
 	CreateEmptyTfmResponse() *TfmResponse
 }
 
@@ -41,7 +44,7 @@ func NewTfmMapper() TfmMapper {
 type TfmMapperImpl struct {
 }
 
-func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken string, cookie string, responseTime time.Duration, responseId string) (*TfmResponse, error) {
+func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken string, cookie string, responseTime time.Duration) (*TfmResponse, error) {
 
 	routes = make(map[string]Route)
 	segments = make(map[string]Segment)
@@ -50,12 +53,15 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	passengers = make(map[string]PassengerDetail)
 	ancillaries = make(map[string]Ancillary)
 	fareGroupMap = make(map[string]FareGroup)
+	OfferMetaDataMap = make(map[string]string)
+	fareComponentAugPointMap = make(map[string]FareComponentAugPointMetadata)
+	fareDetailAugPointMap = make(map[string]FareDetailAugPointMetadata)
 
 	loadRouteMap(rs, routes)
 	loadSegmentMap(rs.DataLists.FlightSegmentList.FlightSegment, segments)
 	//loadFareGroupMap(rs.DataLists.FareList.FareGroup, fareGroupMap)
 	//loadPriceClassMap(rs.DataLists.PriceClassList.PriceClass, priceClasses)
-	//loadServiceClassMap(rs.DataLists.FlightSegmentList.FlightSegment, serviceClass)
+	loadServiceClassMap(rs.DataLists.FlightSegmentList.FlightSegment, serviceClass)
 	loadPassengerMap(rs.DataLists.PassengerList.Passenger, passengers)
 	log.Println("Mapping AirShoppingRS to tfmModel..")
 
@@ -79,12 +85,15 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				var offerItemTotalFare float64 = 0
 				var offerItemTotalTax float64 = 0
 				for _, offerItem := range offer.OfferItem {
-					offerItemTotalFare = offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Total.Value
-					offerItemTotalTax = offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Taxes.Total.Value
+					offerItemTotalFare = offerItemTotalFare +
+						offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Total.Value
+
+					offerItemTotalTax = offerItemTotalTax +
+						offerItem.TotalPriceDetail.TotalAmount.DetailCurrencyPrice.Taxes.Total.Value
 				}
 
-				totalTaxAmount = totalTaxAmount + offerItemTotalTax
-				totalFareAmount = totalFareAmount + offerItemTotalFare
+				totalTaxAmount = offerItemTotalTax
+				totalFareAmount = offerItemTotalFare
 
 				//create combination
 				combination := Combination{}
@@ -94,37 +103,47 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				combination.TotalTaxAmount = totalTaxAmount
 
 				//add route references
-				for _, flightservice := range rs.DataLists.FlightList.Flight {
-					combination.RouteIDs = append(combination.RouteIDs, string(*flightservice.FlightKey))
+
+				for _, flightservice := range offer.OfferItem[0].Service {
+					routeIDs := strings.Split(string(flightservice.FlightRefs), " ")
+					for _, routeID := range routeIDs {
+						combination.RouteIDs = append(combination.RouteIDs, routeID)
+					}
 				}
+
 				offerItemIdsValues := []string{}
 				for _, offerItem := range offer.OfferItem {
-					/*	if len(offerItem.FareDetail[0].FareComponent) > 1 {
-						isValidPriceClassCombination = validatePriceClassCombination(string(offerItem.FareDetail[0].FareComponent[0].PriceClassRef),
-							string(offerItem.FareDetail[0].FareComponent[1].PriceClassRef))
-					}*/
+					if len(offerItem.FareDetail[0].FareComponent) > 1 {
+						//isValidPriceClassCombination = validatePriceClassCombination(
+						//	string(offerItem.FareDetail[0].FareComponent[0].PriceClassRef),
+						//	string(offerItem.FareDetail[0].FareComponent[1].PriceClassRef))
+					}
 					//if isValidPriceClassCombination {
 					combination.Fares = createFares(*offerItem, combination.Fares, vcc)
 					additionalParamsValue := (string(offerItem.OfferItemID))
 					offerItemIdsValues = append(offerItemIdsValues, additionalParamsValue)
 					additionalParams[string(offerItem.OfferItemID)] = strings.Trim(string(offerItem.FareDetail[0].PassengerRefs.Value), " ")
-					/*} else {
-						log.Println("mismtach in price classes skipping the offer ", string(offer.OfferID))
-						break
-					}*/
+					//} else {
+					//	log.Println("mismtach in price classes skipping the offer ", string(offer.OfferID))
+					//	break
+					//}
 				}
 				//if isValidPriceClassCombination {
 				offerItemIds := strings.Join(offerItemIdsValues, ",")
 				additionalParams["offerId"] = string(offer.OfferID)
 				additionalParams["offerItemIds"] = offerItemIds
+				additionalParams["FareType"] = ""
+				additionalParams["FareLevel"] = "ST"
+				additionalParams["FareId"] = "275007"
+
 				//additionalParams["offerValidity"] = offer.OfferExpirationDateTime.Value
 				combination.AdditionalParams = additionalParams
 				combinationCounter++
 				combinations = append(combinations, combination)
-				//}
-			} /*else {
-				break
-			}*/
+			}
+			//} else {
+			//	break
+			//}
 		}
 
 	}
@@ -140,7 +159,7 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	}
 
 	responseTimes := make(map[string]time.Duration)
-	responseTimes["afklmSearch.AirShoppingRQ"] = responseTime
+	responseTimes["xqSearch.AirShoppingRQ"] = responseTime
 
 	log.Println("Mapping done")
 
@@ -167,8 +186,7 @@ func (*TfmMapperImpl) CreateEmptyTfmResponse() *TfmResponse {
 func validatePriceClassCombination(outBoundPC string, inBoundPC string) bool {
 	outBoundPriceClass := priceClasses[outBoundPC]
 	inBoundPriceClass := priceClasses[inBoundPC]
-	if outBoundPriceClass.Name == "ECONOMY" || outBoundPriceClass.Name == "Club Europe" ||
-		inBoundPriceClass.CabinProduct == "ECONOMY" || inBoundPriceClass.CabinProduct == "Club Europe" {
+	if outBoundPriceClass.Name == "ECONOMY" || inBoundPriceClass.CabinProduct == "ECONOMY" {
 		return outBoundPriceClass.Name == inBoundPriceClass.Name
 	} else {
 		return false
@@ -186,15 +204,21 @@ func loadSegmentMap(segmentList []*ListOfFlightSegmentType, segmentMap map[strin
 
 func loadRouteMap(response *AirShoppingRS, routeMap map[string]Route) map[string]Route {
 	for i := 0; i < len(response.DataLists.FlightList.Flight); i++ {
-
 		route := Route{
 			Id:                       string(*response.DataLists.FlightList.Flight[i].FlightKey),
 			Stops:                    calcuateStops(string(response.DataLists.FlightList.Flight[i].SegmentReferences.Value)),
 			SegmentIDs:               strings.Split(string(response.DataLists.FlightList.Flight[i].SegmentReferences.Value), " "),
 			ElapsedFlyingTimeMinutes: calculateElapsedFlyingTime(string(response.DataLists.FlightList.Flight[i].Journey.Time)),
 		}
+		//additionalParams := make(map[string]string)
+		//	additionalParams["OriginationDestinations"] =
+		//		string(*response.DataLists.OriginDestinationList.OriginDestination[i].OriginDestinationKey)
+		//
 
 		routeMap[route.Id] = route
+		//additionalParams["offerId"] = string(offer.OfferID)
+		//ancillary.AdditionalParams = additionalParams
+		//routeMap[route.AdditionalParams] = additionalParams
 	}
 
 	return routeMap
@@ -244,25 +268,24 @@ func createServiceClass(classOfService ClassOfService) ServiceClass {
 	return serviceClass
 }
 
-/*func loadServiceClassMap(serviceClassList []*ListOfFlightSegmentType, serviceClassMap map[string]ServiceClass) map[string]ServiceClass {
+func loadServiceClassMap(serviceClassList []*ListOfFlightSegmentType, serviceClassMap map[string]ServiceClass) map[string]ServiceClass {
 	for _, serviceClass := range serviceClassList {
 		serviceClass := createServicesClass(serviceClass)
 		serviceClassMap[serviceClass.Id] = serviceClass
 	}
 
 	return serviceClassMap
-}*/
-/*func createServicesClass(serviceType *ListOfFlightSegmentType)ServiceClass{
+}
+func createServicesClass(serviceType *ListOfFlightSegmentType) ServiceClass {
 	//var fareBaseGroup []FareGroup
 
-
 	serviceClass := ServiceClass{
-		Id: "nil",
-		Code:string(*serviceType.ClassOfService.Code.Value),
-		MarketingName:string(*serviceType.ClassOfService.MarketingName.Value),
+		Id:            "nil",
+		Code:          string(*serviceType.ClassOfService.Code.Value),
+		MarketingName: string(*serviceType.ClassOfService.MarketingName.Value),
 	}
 	return serviceClass
-}*/
+}
 
 func loadPassengerMap(passengerTypeList []*PassengerType, passengerMap map[string]PassengerDetail) map[string]PassengerDetail {
 	for _, passengerType := range passengerTypeList {
@@ -395,6 +418,7 @@ func createFareProducts(fareDetail FareDetailType, fareProducts []FareProduct, p
 
 		for _, segmentRef := range segmentRefs {
 			fareProducts = append(fareProducts, createFareProduct(*fareComponent, segmentRef, paxRef))
+
 		}
 	}
 
@@ -402,19 +426,32 @@ func createFareProducts(fareDetail FareDetailType, fareProducts []FareProduct, p
 }
 
 func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRef string) FareProduct {
-	//var serviceClassRef string = string(fareComponent.SegmentRefs.Value)
+	//var serviceClassRef string = string
+	//get the segment from the segment map
+	//
+	//segments[segmentRef]
+	//get the fmd and farecomprefs
+	//add then as addiitional params into the segment
 
 	var defaultAncillaries []string
 	var fareProductFinal FareProduct
 	defaultAncillaries = append(defaultAncillaries, ancillaries[DEFAULT_HAND_BAGGAGE].Id)
 	//var serviceClass = serviceClass[serviceClassRef]
 	var cabinProduct string = string(fareComponent.FareBasis.CabinType.CabinTypeName.Value)
+	additionalParams := make(map[string]string)
+	augkeys := fareComponent.FareBasis.FareBasisCode.Refs
+	key := MultiAssocSimpleType(*augkeys)
+	var sepKeys = strings.Split(string(key), " ")
+	additionalParams[segmentRef] = strings.Join(sepKeys, ",")
+
+	//additionalParams[segmentRef]= strings.Split(string(fareComponent.FareBasis.FareBasisCode.Refs), " ")
 
 	fareProductFinal = FareProduct{
-		SegmentID:    segmentRef,
-		CabinProduct: cabinProduct,
-		FareBase:     string(*fareComponent.FareBasis.FareBasisCode.Refs),
-		AncillaryIDs: defaultAncillaries,
+		SegmentID:        segmentRef,
+		CabinProduct:     cabinProduct,
+		FareBase:         string(*fareComponent.FareBasis.FareBasisCode.Code),
+		AncillaryIDs:     defaultAncillaries,
+		AdditionalParams: additionalParams,
 	}
 
 	return fareProductFinal
@@ -427,6 +464,54 @@ func loadFareGroupMap(fareGroupList []*FareGroup__1, fareGroupMap map[string]Far
 	}
 
 	return fareGroupMap
+}
+
+func loadFareMetaDataGroupMap(OfferMetadataList []*OfferMetadata, fareDetailAugPoint map[string]FareDetailAugPointMetadata) map[string]string {
+	for _, fareGroupListItem := range OfferMetadataList {
+		augKeys := []string{}
+
+		for _, augPoint := range fareGroupListItem.AugmentationPoint.AugPoint {
+			var augPointKey = string(*augPoint.Key)
+			augKeys = append(augKeys, augPointKey)
+			if strings.Contains(augPointKey, "FMD") {
+				fareDetailAugPointMap[augPointKey] = createFareDetailAugPoint(augPoint.FareDetailAugPoint)
+			} else if strings.Contains(augPointKey, "FARECOMPREFS") {
+				fareComponentAugPointMap[augPointKey] = createFareComponentAugPoint(augPoint.FareComponentAugPoint)
+			}
+
+		}
+		OfferMetaDataMap[fareGroupListItem.MetadataKey] = strings.Join(augKeys, ",")
+	}
+	return OfferMetaDataMap
+}
+
+func loadFareDetailDataMap(fareGroupList []*FareGroup__1, fareGroupMap map[string]FareGroup) map[string]FareGroup {
+	for _, fareGroupListItem := range fareGroupList {
+		fareGroup := createFareGroup(fareGroupListItem)
+		fareGroupMap[fareGroup.Id] = fareGroup
+	}
+
+	return fareGroupMap
+}
+func createFareDetailAugPoint(fareDetailAugItem *FareDetailAugPoint) FareDetailAugPointMetadata {
+	fareDetailAugGroup := FareDetailAugPointMetadata{
+		FareType:  fareDetailAugItem.FareType,
+		FareLevel: fareDetailAugItem.FareLevel,
+		FareId:    string(fareDetailAugItem.FareId),
+	}
+
+	return fareDetailAugGroup
+}
+func createFareComponentAugPoint(fareComponentAugItem *FareComponentAugPoint) FareComponentAugPointMetadata {
+	fareDetailAugGroup := FareComponentAugPointMetadata{
+		//todo
+		//BaseFare:    CurrencyAmountType(fareComponentAugItem.BaseFare),
+		//DisplayFare: fareComponentAugItem.DisplayFare,
+		//Discount:    fareComponentAugItem.Discount,
+
+	}
+
+	return fareDetailAugGroup
 }
 func createFareGroup(fareGroupListItem *FareGroup__1) FareGroup {
 	fareGroup := FareGroup{

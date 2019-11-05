@@ -112,6 +112,18 @@ type FareGroup struct {
 	FareCode      string
 }
 
+type FareComponentAugPointMetadata struct {
+	BaseFare    string
+	DisplayFare string
+	Discount    string
+	Code        string
+}
+type FareDetailAugPointMetadata struct {
+	FareType  string
+	FareLevel string
+	FareId    string
+}
+
 type PassengerDetail struct {
 	Id   string //PAX1
 	Type string
@@ -126,7 +138,7 @@ const (
 	ADT       = "ADT"
 	CHD       = "CHD"
 	INF       = "INF"
-	PAX       = "XQ_PAX_"
+	PAX       = "PAX_"
 	TARIFF_TO = "TO"
 	TARIFF_PU = "PU"
 
