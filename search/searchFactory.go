@@ -121,7 +121,7 @@ func createParty(query Query) (*Party, error) {
 	var airLineID AirlineDesigSimpleType = AirlineDesigSimpleType(query.Source)
 	//var airLineName CarrierNameType = CarrierNameType(SourceMap[query.Source])
 	var recipientName = CarrierNameType(model.RequestConfig.WebserviceAirLineName)
-	userName := model.RequestConfig.WebserviceUser
+	userName := model.RequestConfig.WebserviceParticipantName
 	airlineCoreType := &AirlineCoreRepType{
 		AirlineID: &AirlineID{
 			AirlineID_Type: &AirlineID_Type{Value: airLineID},

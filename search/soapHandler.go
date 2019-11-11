@@ -8,6 +8,7 @@ import (
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/wsdl2goEdit"
 	"log"
 	"net/http"
+	"net/url"
 	"time"
 )
 
@@ -126,6 +127,7 @@ func interceptResponse(resp *http.Response) {
 
 func createClient(config WebserviceConfig, header wsdl2goEdit.Header) wsdl2goEdit.Client {
 	log.Println("Creating client..")
+	proxyURL, _ := url.Parse("http://10.145.10.5:8080")
 	cli := wsdl2goEdit.Client{
 		URL:                    config.WsUrl,
 		Header:                 header,
@@ -135,6 +137,15 @@ func createClient(config WebserviceConfig, header wsdl2goEdit.Header) wsdl2goEdi
 		ExcludeActionNamespace: true,
 		Pre:                    interceptRequest,
 		Post:                   interceptResponse,
+		//TODO: this config needs to be reomoved in final code . this works only in sonata network
+		Config: &http.Client{
+			Transport: &http.Transport{
+				TLSClientConfig: &tls.Config{
+					InsecureSkipVerify: true,
+				},
+				Proxy: http.ProxyURL(proxyURL),
+			},
+		},
 	}
 	return cli
 }

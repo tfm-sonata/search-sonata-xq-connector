@@ -23,7 +23,7 @@ func TestHandleMessage(t *testing.T) {
 	model.RequestConfig = &model.Config{
 		Id:                       "id",
 		WebserviceUrl:            "https://iflyrestest.ibsgen.com:6013/iRes_NdcRes_WS/services/NdcResService172SOAPPort?",
-		WebserviceUser:           "JETRADAR",
+		WebserviceUser:           "jetradar",
 		WebservicePassword:       "oPBCDECGZCRA",
 		WebserviceSessionTimeout: "300",
 		WebserviceLevel1:         "NBSO",

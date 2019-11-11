@@ -124,7 +124,6 @@ type ContactAugPoint struct {
 }
 
 type FareDetailAugPoint struct {
-	XMLName xml.Name `xml:"http://www.ibsplc.com/iFlyRes/simpleTypes/2017.2 FareDetailAugPoint"`
 
 	// Fare type family definition of a fare
 	// eg. FLEXI, INCLUSIVE, NORMAL etc...
@@ -1501,6 +1500,7 @@ type AugPointType struct {
 	// Globally Unique Object instance/ class Key.
 	//
 	// Example: 2B75C565-5BB0- 4DCE-8DE6-67CB7B4F25A7
+	FareDetailAugPoint *FareDetailAugPoint `xml:"FareDetailAugPoint, omitempty"`
 
 	Key *InstanceClassSimpleType `xml:"Key,attr,omitempty"`
 

@@ -135,7 +135,7 @@ func doRoundTrip(c *Client, setHeaders func(*http.Request), in, out Message) err
 	if c.Pre != nil {
 		c.Pre(r)
 	}
-	printWsdl(req)
+	//printWsdl(req)
 	resp, err := cli.Do(r)
 	if err != nil {
 		return err
