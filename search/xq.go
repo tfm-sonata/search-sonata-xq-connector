@@ -1500,7 +1500,9 @@ type AugPointType struct {
 	// Globally Unique Object instance/ class Key.
 	//
 	// Example: 2B75C565-5BB0- 4DCE-8DE6-67CB7B4F25A7
-	FareDetailAugPoint *FareDetailAugPoint `xml:"FareDetailAugPoint, omitempty"`
+	FareDetailAugPoint *FareDetailAugPoint `xml:"FareDetailAugPoint,omitempty"`
+
+	FareComponentAugPoint *FareComponentAugPoint `xml:"FareComponentAugPoint,omitempty"`
 
 	Key *InstanceClassSimpleType `xml:"Key,attr,omitempty"`
 
