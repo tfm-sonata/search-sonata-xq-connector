@@ -113,15 +113,19 @@ type FareGroup struct {
 }
 
 type FareComponentAugPointMetadata struct {
-	BaseFare    string
-	DisplayFare string
-	Discount    string
-	Code        string
+	BaseFare        string
+	BaseFareCode    string
+	DisplayFare     string
+	DisplayFareCode string
+	Discount        string
+	DiscountCode    string
+	MetaDataKeyRef  string
 }
 type FareDetailAugPointMetadata struct {
-	FareType  string
-	FareLevel string
-	FareId    string
+	FareType       string
+	FareLevel      string
+	FareId         string
+	MetaDataKeyRef string
 }
 
 type PassengerDetail struct {
@@ -157,6 +161,22 @@ const (
 	BAGGAGE_NORMAL          = "NORMAL"
 	DATE_FORMAT             = "2006-01-02T15:04:05"
 	FARE_BASE_CODE_PREFIX   = "FBCODE"
+
+	FARE_TYPE_SUFFIX  = "_FareType"
+	FARE_LEVEL_SUFFIX = "_FareLevel"
+	FARE_ID_SUFFIX    = "_FareId"
+
+	BASE_FARE_SUFFIX         = "_BaseFare"
+	BASE_FARE_CODE_SUFFIX    = "_BaseFareCode"
+	DISPLAY_FARE_SUFFIX      = "_DisplayFare"
+	DISPLAY_FARE_CODE_SUFFIX = "_DisplayFareCode"
+	DISC_FARE_SUFFIX         = "_Discount"
+	DISC_FARE_CODE_SUFFIX    = "_DiscountCode"
+
+	METADATA_KEY_SUFFIX = "_MetaDataKey"
+
+	SPACE_DELIMITER = " "
+	COMMA_DELIMITER = ","
 )
 
 var SourceMap = map[string]string{
