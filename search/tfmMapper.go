@@ -372,6 +372,11 @@ func createSegment(segment *ListOfFlightSegmentType) Segment {
 	s.DepartureTime = (segment.Departure.Date) + "T" + string(*segment.Departure.Time)
 	s.ArrivalTime = (segment.Arrival.Date) + "T" + string(*segment.Arrival.Time)
 
+	additionalParams := make(map[string]string)
+	additionalParams["ClassOfServiceCode"] = string(*segment.ClassOfService.Code.Value)
+	additionalParams["ClassOfServiceMarketingName"] = string(*segment.ClassOfService.MarketingName.Value)
+	s.AdditionalParams = additionalParams
+
 	return s
 }
 
