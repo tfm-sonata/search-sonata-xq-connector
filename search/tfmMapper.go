@@ -61,6 +61,8 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	loadSegmentMap(rs.DataLists.FlightSegmentList.FlightSegment, segments)
 	//loadFareGroupMap(rs.DataLists.FareList.FareGroup, fareGroupMap)
 	//loadPriceClassMap(rs.DataLists.PriceClassList.PriceClass, priceClasses)
+	loadFareMetaDataGroupMap(rs.Metadata.Shopping.ShopMetadataGroup.Offer.OfferMetadatas.OfferMetadata,
+		fareDetailAugPointMap, fareComponentAugPointMap)
 	loadServiceClassMap(rs.DataLists.FlightSegmentList.FlightSegment, serviceClass)
 	loadPassengerMap(rs.DataLists.PassengerList.Passenger, passengers)
 	log.Println("Mapping AirShoppingRS to tfmModel..")
@@ -370,6 +372,11 @@ func createSegment(segment *ListOfFlightSegmentType) Segment {
 	s.DepartureTime = (segment.Departure.Date) + "T" + string(*segment.Departure.Time)
 	s.ArrivalTime = (segment.Arrival.Date) + "T" + string(*segment.Arrival.Time)
 
+	additionalParams := make(map[string]string)
+	additionalParams["ClassOfServiceCode"] = string(*segment.ClassOfService.Code.Value)
+	additionalParams["ClassOfServiceMarketingName"] = string(*segment.ClassOfService.MarketingName.Value)
+	s.AdditionalParams = additionalParams
+
 	return s
 }
 
@@ -428,9 +435,35 @@ func createFareProducts(fareDetail FareDetailType, fareProducts []FareProduct, p
 func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRef string) FareProduct {
 	//var serviceClassRef string = string
 	//get the segment from the segment map
-	//
-	//segments[segmentRef]
-	//get the fmd and farecomprefs
+	segment := segments[segmentRef]
+	if segment.AdditionalParams == nil {
+		segment.AdditionalParams = make(map[string]string)
+	}
+	//get the fmd and farecomprefs from fareComponent
+	fareBasisCodeRefs := string(*fareComponent.FareBasis.FareBasisCode.Refs)
+	fareBasisCodeItemRefs := strings.Split(fareBasisCodeRefs, SPACE_DELIMITER)
+	for _, fareBasisCodeItemRef := range fareBasisCodeItemRefs {
+		if strings.Contains(fareBasisCodeItemRef, "FMD") {
+			fareDetailAugPoint := fareDetailAugPointMap[fareBasisCodeItemRef]
+			segment.AdditionalParams[fareBasisCodeItemRef+FARE_TYPE_SUFFIX] = fareDetailAugPoint.FareType
+			segment.AdditionalParams[fareBasisCodeItemRef+FARE_LEVEL_SUFFIX] = fareDetailAugPoint.FareLevel
+			segment.AdditionalParams[fareBasisCodeItemRef+FARE_ID_SUFFIX] = fareDetailAugPoint.FareId
+			segment.AdditionalParams[fareBasisCodeItemRef+METADATA_KEY_SUFFIX] = fareDetailAugPoint.MetaDataKeyRef
+
+		} else if strings.Contains(fareBasisCodeItemRef, "FARECOMPREFS") {
+			fareComponentAugPoint := fareComponentAugPointMap[fareBasisCodeItemRef]
+			segment.AdditionalParams[fareBasisCodeItemRef+BASE_FARE_SUFFIX] = fareComponentAugPoint.BaseFare
+			segment.AdditionalParams[fareBasisCodeItemRef+BASE_FARE_CODE_SUFFIX] = fareComponentAugPoint.BaseFareCode
+			segment.AdditionalParams[fareBasisCodeItemRef+DISPLAY_FARE_SUFFIX] = fareComponentAugPoint.DisplayFare
+			segment.AdditionalParams[fareBasisCodeItemRef+DISPLAY_FARE_CODE_SUFFIX] = fareComponentAugPoint.DisplayFareCode
+
+			segment.AdditionalParams[fareBasisCodeItemRef+DISC_FARE_SUFFIX] = fareComponentAugPoint.Discount
+			segment.AdditionalParams[fareBasisCodeItemRef+DISC_FARE_CODE_SUFFIX] = fareComponentAugPoint.DiscountCode
+			segment.AdditionalParams[fareBasisCodeItemRef+METADATA_KEY_SUFFIX] = fareComponentAugPoint.MetaDataKeyRef
+		}
+		segments[segmentRef] = segment
+	}
+
 	//add then as addiitional params into the segment
 
 	var defaultAncillaries []string
@@ -442,7 +475,7 @@ func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRe
 	augkeys := fareComponent.FareBasis.FareBasisCode.Refs
 	key := MultiAssocSimpleType(*augkeys)
 	var sepKeys = strings.Split(string(key), " ")
-	additionalParams[segmentRef] = strings.Join(sepKeys, ",")
+	additionalParams[segmentRef] = strings.Join(sepKeys, ",") // SEG1--> v1_FMDXXXXXXX, V1_FCOMPREFXXXXXX
 
 	//additionalParams[segmentRef]= strings.Split(string(fareComponent.FareBasis.FareBasisCode.Refs), " ")
 
@@ -466,21 +499,22 @@ func loadFareGroupMap(fareGroupList []*FareGroup__1, fareGroupMap map[string]Far
 	return fareGroupMap
 }
 
-func loadFareMetaDataGroupMap(OfferMetadataList []*OfferMetadata, fareDetailAugPoint map[string]FareDetailAugPointMetadata) map[string]string {
-	for _, fareGroupListItem := range OfferMetadataList {
+func loadFareMetaDataGroupMap(OfferMetadataList []*OfferMetadata, fareDetailAugPointMap map[string]FareDetailAugPointMetadata,
+	fareComponentAugPointMap map[string]FareComponentAugPointMetadata) map[string]string {
+	for _, offerMetadataItem := range OfferMetadataList {
 		augKeys := []string{}
 
-		for _, augPoint := range fareGroupListItem.AugmentationPoint.AugPoint {
+		for _, augPoint := range offerMetadataItem.AugmentationPoint.AugPoint {
 			var augPointKey = string(*augPoint.Key)
 			augKeys = append(augKeys, augPointKey)
 			if strings.Contains(augPointKey, "FMD") {
-				fareDetailAugPointMap[augPointKey] = createFareDetailAugPoint(augPoint.FareDetailAugPoint)
+				fareDetailAugPointMap[augPointKey] = createFareDetailAugPoint(augPoint.FareDetailAugPoint, offerMetadataItem.MetadataKey)
 			} else if strings.Contains(augPointKey, "FARECOMPREFS") {
-				fareComponentAugPointMap[augPointKey] = createFareComponentAugPoint(augPoint.FareComponentAugPoint)
+				fareComponentAugPointMap[augPointKey] = createFareComponentAugPoint(augPoint.FareComponentAugPoint, offerMetadataItem.MetadataKey)
 			}
 
 		}
-		OfferMetaDataMap[fareGroupListItem.MetadataKey] = strings.Join(augKeys, ",")
+		OfferMetaDataMap[offerMetadataItem.MetadataKey] = strings.Join(augKeys, ",")
 	}
 	return OfferMetaDataMap
 }
@@ -493,25 +527,25 @@ func loadFareDetailDataMap(fareGroupList []*FareGroup__1, fareGroupMap map[strin
 
 	return fareGroupMap
 }
-func createFareDetailAugPoint(fareDetailAugItem *FareDetailAugPoint) FareDetailAugPointMetadata {
+func createFareDetailAugPoint(fareDetailAugItem *FareDetailAugPoint, metaDataKey string) FareDetailAugPointMetadata {
 	fareDetailAugGroup := FareDetailAugPointMetadata{
-		FareType:  fareDetailAugItem.FareType,
-		FareLevel: fareDetailAugItem.FareLevel,
-		FareId:    string(fareDetailAugItem.FareId),
+		FareType:       fareDetailAugItem.FareType,
+		FareLevel:      fareDetailAugItem.FareLevel,
+		FareId:         strconv.FormatInt(fareDetailAugItem.FareId, 10),
+		MetaDataKeyRef: metaDataKey,
 	}
 
 	return fareDetailAugGroup
 }
-func createFareComponentAugPoint(fareComponentAugItem *FareComponentAugPoint) FareComponentAugPointMetadata {
-	fareDetailAugGroup := FareComponentAugPointMetadata{
-		//todo
-		//BaseFare:    CurrencyAmountType(fareComponentAugItem.BaseFare),
-		//DisplayFare: fareComponentAugItem.DisplayFare,
-		//Discount:    fareComponentAugItem.Discount,
-
+func createFareComponentAugPoint(fareComponentAugItem *FareComponentAugPoint, metaDataKey string) FareComponentAugPointMetadata {
+	fareComponentAugPointMetadata := FareComponentAugPointMetadata{
+		BaseFare:       strconv.FormatFloat(fareComponentAugItem.BaseFare.Value, 'b', -1, 64),
+		DisplayFare:    strconv.FormatFloat(fareComponentAugItem.DisplayFare.Value, 'b', -1, 64),
+		Discount:       strconv.FormatFloat(fareComponentAugItem.Discount.Value, 'b', -1, 64),
+		MetaDataKeyRef: metaDataKey,
 	}
 
-	return fareDetailAugGroup
+	return fareComponentAugPointMetadata
 }
 func createFareGroup(fareGroupListItem *FareGroup__1) FareGroup {
 	fareGroup := FareGroup{
