@@ -7,7 +7,7 @@
                       <CountryCode xmlns="http://www.iata.org/IATA/EDIST/2017.2">TR</CountryCode>
                       <CityCode xmlns="http://www.iata.org/IATA/EDIST/2017.2">City</CityCode>
                   </Location>
-                  <RequestTime>2019-10-29T17:46:11</RequestTime>
+                  <RequestTime>2019-11-12T17:16:13</RequestTime>
               </PointOfSale>
               <Document>
                   <Name>NDC</Name>
@@ -28,7 +28,6 @@
                   </Recipient>
               </Party>
               <CoreQuery>
-<<<<<<< HEAD
                   <OriginDestinations>
                       <OriginDestination>
                           <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.2">
@@ -46,58 +45,15 @@
                           </Departure>
                           <Arrival>
                               <AirportCode>AYT</AirportCode>
-=======
-                  <OriginDestinations xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                      <OriginDestination>
-                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                              <AirportCode>AMS</AirportCode>
-                              <Date>2019-09-18</Date>
-                          </Departure>
-                          <Arrival xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                              <AirportCode>LHR</AirportCode>
-                          </Arrival>
-                      </OriginDestination>
-                      <OriginDestination>
-                          <Departure xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                              <AirportCode>LHR</AirportCode>
-                              <Date>2019-09-19</Date>
-                          </Departure>
-                          <Arrival xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                              <AirportCode>AMS</AirportCode>
->>>>>>> e5fd0cc7ffb1a0b51b1345a26282ae4a957cc65d
                           </Arrival>
                       </OriginDestination>
                   </OriginDestinations>
               </CoreQuery>
-<<<<<<< HEAD
               <DataLists>
                   <PassengerList>
-                      <Passenger PassengerID="XQ_XQ_PAX__1">
+                      <Passenger PassengerID="XQ_PAX__1">
                           <PTC>ADT</PTC>
                       </Passenger>
-=======
-              <Preference>
-                  <CabinPreferences xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                      <CabinType xmlns="http://www.iata.org/IATA/EDIST/2017.1">
-                          <Code>5</Code>
-                      </CabinType>
-                  </CabinPreferences>
-              </Preference>
-              <DataLists>
-                  <PassengerList>
-                      <Passenger>
-                          <PTC>ADT</PTC>
-                      </Passenger>
-                      <Passenger>
-                          <PTC>ADT</PTC>
-                      </Passenger>
-                      <Passenger>
-                          <PTC>CHD</PTC>
-                      </Passenger>
-                      <Passenger>
-                          <PTC>INF</PTC>
-                      </Passenger>
->>>>>>> e5fd0cc7ffb1a0b51b1345a26282ae4a957cc65d
                   </PassengerList>
               </DataLists>
           </AirShoppingRQ>

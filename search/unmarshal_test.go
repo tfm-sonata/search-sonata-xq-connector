@@ -54,7 +54,7 @@ func TestUnmarshalAirShoppingRS(t *testing.T) {
 
 	//log.Printf(" No. of pax  %+v\n", γ.AirShoppingResponse.AirShoppingRS.OffersGroup.AllOffersSnapshot.PassengerQuantity)
 	tfmMapper := NewTfmMapper()
-	tfmResponse, err := tfmMapper.CreateTFMResponse(γ.AirShoppingRS, "", "", time.Duration(10), "")
+	tfmResponse, err := tfmMapper.CreateTFMResponse(γ.AirShoppingRS, "", "", time.Duration(10))
 	log.Println("Tested mapping !!")
 
 	searchResponse, error := json.Marshal(tfmResponse)

@@ -81,12 +81,12 @@ func (this *SoapHandlerImpl) Search(query Query) (*TfmResponse, error) {
 		log.Println("Validation error. Returning empty tfmResponse.", err)
 		return this.tfmMapper.CreateEmptyTfmResponse(), err
 	}
-	var correlationId = string(*airShoppingRQ.CorrelationID)
+	//var correlationId = string(*airShoppingRQ.CorrelationID)
 	timeEnd := time.Now()
 	// defer awshelper.AddThirdPartyMetric(awshelper.RESPONSE_TIME, "Mercado FlightVacancyNpmRQ", awshelper.UNIT_MILLISECONDS, float64(timeEnd.Sub(timeStart)/time.Millisecond))
 	log.Println("ProvideAirShopping finished")
 
-	tfmResponse, err := this.tfmMapper.CreateTFMResponse(airShoppingRS, "", cookie, timeEnd.Sub(timeStart)/time.Millisecond, correlationId)
+	tfmResponse, err := this.tfmMapper.CreateTFMResponse(airShoppingRS, "", cookie, timeEnd.Sub(timeStart)/time.Millisecond)
 
 	return tfmResponse, err
 }
