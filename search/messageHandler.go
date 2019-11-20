@@ -11,13 +11,12 @@ func HandleMessage(parameterStoreConfig fraud.ParameterStoreConfig, messageBody 
 
 	// Store timestamp so tracking can be done after message is processed
 	//timeIncoming := time.Now()
-	soapHandler := createSoapHandler()
 	var q Query
 	err := json.Unmarshal([]byte(messageBody), &q)
 
 	if err != nil {
 		log.Println("Couldn't unmarshal messageBody into query:", messageBody, err)
-		return soapHandler.CreateEmptyTfmResponse(), err
+		return nil, err
 	}
 
 	//defer awshelper.SendTrackingMessage(awshelper.TrackingMessage{Timestamp: aws.TimeUnixMilli(timeIncoming), ServiceName: awshelper.ServiceName, Action: "Message", SessionId: q.SessionId, RequestId: q.RequestId, ContentType: "JSON", BodyZ: messageBody, Title: "QUEUE_IN", ActionType: "Request"})
@@ -25,11 +24,12 @@ func HandleMessage(parameterStoreConfig fraud.ParameterStoreConfig, messageBody 
 	// load config for request
 	//_, err = fraud.ServiceConfigForProductChannel(parameterStoreConfig.ConfigProvider, parameterStoreConfig.Servicename, q.Product, q.Channel)
 
+	soapHandler := createSoapHandler()
 	tfmResponse, err := soapHandler.Search(q)
 
 	if err != nil {
 		log.Println("Something went wrong while searching", err)
-		return &TfmResponse{}, err
+		return nil, err
 	}
 
 	tfmResponse.Query = handleAntiCorruptionLayer(messageBody)

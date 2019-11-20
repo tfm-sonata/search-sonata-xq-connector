@@ -8,6 +8,7 @@ import (
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/wsdl2goEdit"
 	"log"
 	"net/http"
+	"net/url"
 	"time"
 )
 
@@ -18,7 +19,6 @@ func init() {
 
 type SoapHandler interface {
 	Search(query Query) (*TfmResponse, error)
-	CreateEmptyTfmResponse() *TfmResponse
 }
 
 type SoapHandlerImpl struct {
@@ -72,13 +72,13 @@ func (this *SoapHandlerImpl) Search(query Query) (*TfmResponse, error) {
 	airShoppingRS, err = soapService.ShopAir(airShoppingRQ)
 	if err != nil {
 		log.Println("Something went wrong during ProvideAirShopping. Possible Timeout. Returning empty tfmResponse.", err)
-		return this.tfmMapper.CreateEmptyTfmResponse(), err
+		return nil, err
 	}
 
 	err = helper.validateErrors(airShoppingRS)
 	if err != nil {
 		log.Println("Validation error. Returning empty tfmResponse.", err)
-		return this.tfmMapper.CreateEmptyTfmResponse(), err
+		return nil, nil
 	}
 	//var correlationId = string(*airShoppingRQ.CorrelationID)
 	timeEnd := time.Now()
@@ -88,9 +88,6 @@ func (this *SoapHandlerImpl) Search(query Query) (*TfmResponse, error) {
 	tfmResponse, err := this.tfmMapper.CreateTFMResponse(airShoppingRS, "", cookie, timeEnd.Sub(timeStart)/time.Millisecond)
 
 	return tfmResponse, err
-}
-func (this *SoapHandlerImpl) CreateEmptyTfmResponse() *TfmResponse {
-	return this.tfmMapper.CreateEmptyTfmResponse()
 }
 func interceptRequest(req *http.Request) {
 	//req.Header.Set("Accept", "*/*")
@@ -126,7 +123,7 @@ func interceptResponse(resp *http.Response) {
 
 func createClient(config WebserviceConfig, header wsdl2goEdit.Header) wsdl2goEdit.Client {
 	log.Println("Creating client..")
-	//proxyURL, _ := url.Parse("http://10.145.10.5:8080")
+	proxyURL, _ := url.Parse("http://10.145.10.5:8080")
 	cli := wsdl2goEdit.Client{
 		URL:                    config.WsUrl,
 		Header:                 header,
@@ -137,14 +134,14 @@ func createClient(config WebserviceConfig, header wsdl2goEdit.Header) wsdl2goEdi
 		Pre:                    interceptRequest,
 		Post:                   interceptResponse,
 		//TODO: this config needs to be reomoved in final code . this works only in sonata network
-		/*Config: &http.Client{
+		Config: &http.Client{
 			Transport: &http.Transport{
 				TLSClientConfig: &tls.Config{
 					InsecureSkipVerify: true,
 				},
 				Proxy: http.ProxyURL(proxyURL),
 			},
-		},*/
+		},
 	}
 	return cli
 }
