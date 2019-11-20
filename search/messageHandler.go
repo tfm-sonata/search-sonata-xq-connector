@@ -22,7 +22,7 @@ func HandleMessage(parameterStoreConfig fraud.ParameterStoreConfig, messageBody 
 	//defer awshelper.SendTrackingMessage(awshelper.TrackingMessage{Timestamp: aws.TimeUnixMilli(timeIncoming), ServiceName: awshelper.ServiceName, Action: "Message", SessionId: q.SessionId, RequestId: q.RequestId, ContentType: "JSON", BodyZ: messageBody, Title: "QUEUE_IN", ActionType: "Request"})
 
 	// load config for request
-	//_, err = fraud.ServiceConfigForProductChannel(parameterStoreConfig.ConfigProvider, parameterStoreConfig.Servicename, q.Product, q.Channel)
+	_, err = fraud.ServiceConfigForProductChannel(parameterStoreConfig.ConfigProvider, parameterStoreConfig.Servicename, q.Product, q.Channel)
 
 	soapHandler := createSoapHandler()
 	tfmResponse, err := soapHandler.Search(q)

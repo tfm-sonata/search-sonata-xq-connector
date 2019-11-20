@@ -539,9 +539,9 @@ func createFareDetailAugPoint(fareDetailAugItem *FareDetailAugPoint, metaDataKey
 }
 func createFareComponentAugPoint(fareComponentAugItem *FareComponentAugPoint, metaDataKey string) FareComponentAugPointMetadata {
 	fareComponentAugPointMetadata := FareComponentAugPointMetadata{
-		BaseFare:       strconv.FormatFloat(fareComponentAugItem.BaseFare.Value, 'b', -1, 64),
-		DisplayFare:    strconv.FormatFloat(fareComponentAugItem.DisplayFare.Value, 'b', -1, 64),
-		Discount:       strconv.FormatFloat(fareComponentAugItem.Discount.Value, 'b', -1, 64),
+		BaseFare:       strconv.FormatFloat(fareComponentAugItem.BaseFare.Value, 'f', 2, 64),
+		DisplayFare:    strconv.FormatFloat(fareComponentAugItem.DisplayFare.Value, 'f', 2, 64),
+		Discount:       strconv.FormatFloat(fareComponentAugItem.Discount.Value, 'f', 2, 64),
 		MetaDataKeyRef: metaDataKey,
 	}
 
