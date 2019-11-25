@@ -77,7 +77,7 @@ func (this *SoapHandlerImpl) Search(query Query) (*TfmResponse, error) {
 	err = helper.validateErrors(airShoppingRS)
 	if err != nil {
 		log.Println("Validation error. Returning empty tfmResponse.", err)
-		return nil, nil
+		return this.tfmMapper.CreateEmptyTfmResponse(), nil
 	}
 	//var correlationId = string(*airShoppingRQ.CorrelationID)
 	timeEnd := time.Now()
