@@ -136,9 +136,6 @@ type PassengerDetail struct {
 const (
 	NBSO_TO   = "NBSO_TO"
 	NBSO_PUB  = "NBSO_PUB"
-	ADULT     = "ADULT"
-	CHILD     = "CHILD"
-	INFANT    = "INFANT"
 	ADT       = "ADT"
 	CHD       = "CHD"
 	INF       = "INF"
@@ -177,6 +174,8 @@ const (
 
 	SPACE_DELIMITER = " "
 	COMMA_DELIMITER = ","
+
+	OD_REF = "OdRef"
 )
 
 var SourceMap = map[string]string{

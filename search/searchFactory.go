@@ -27,7 +27,7 @@ func (*SearchFactoryImpl) CreateAirShoppingRQ(query Query) (*AirShoppingRQ, erro
 	//var primanryLangID ="EN"
 	//var cabinCode CodesetValueSimpleType = CodesetValueSimpleType(model.RequestConfig.WebserviceCabinCode) //5
 	//var farePreferenceceType := model.RequestConfig.WebserviceFareCode
-	var passengers []*PassengerType = createPassangers(query)
+	var passengers []*PassengerType = createPaxTypeList(query)
 	var originDestinations *AirShopReqAttributeQueryType = craeteOriginDestinations(query)
 	//var farePreferences *FarePreferences = createFarePreference(query) //nil
 
@@ -219,35 +219,42 @@ func createParty(query Query) (*Party, error) {
 func createParameters(airShoppingRQ *AirShoppingRQ, query Query) (*AirShoppingRQ, error) {
 	return nil, nil
 }
-func createPassangers(query Query) []*PassengerType {
-	passangers := []*PassengerType{}
+
+func createPassengerType(paxNo int8, paxType PassengerTypeCodeType, query Query) *PassengerType {
+	var paxId = string(query.Source + "_" + PAX + "_" + strconv.Itoa(int(paxNo+1)))
+	return &PassengerType{
+		PassengerID: paxId,
+		PTC:         &paxType,
+	}
+
+}
+func createPaxTypeList(query Query) []*PassengerType {
+	var paxTypeList []*PassengerType
 	var adt PassengerTypeCodeType = PassengerTypeCodeType(ADT)
 	var chd PassengerTypeCodeType = PassengerTypeCodeType(CHD)
-	var ift PassengerTypeCodeType = PassengerTypeCodeType(INF)
+	var inf PassengerTypeCodeType = PassengerTypeCodeType(INF)
 
-	var i int8
-	for i = 0; i < query.Adult; i++ {
-		var passengerId = string(query.Source + "_" + PAX + "_" + strconv.Itoa(int(i+1))) // (b + strconv.Itoa(a))
-		passangers = append(passangers, &PassengerType{
-			PassengerID: passengerId,
-			PTC:         &adt,
-		})
+	totalPaxCount := query.Adult + query.Child + query.Infant
+
+	var i, adtCount, chdCount, infCount int8
+
+	for i < totalPaxCount {
+		for ; adtCount < query.Adult; adtCount++ {
+			paxTypeList = append(paxTypeList, createPassengerType(i, adt, query))
+			i++
+		}
+		for ; chdCount < query.Child; chdCount++ {
+			paxTypeList = append(paxTypeList, createPassengerType(i, chd, query))
+			i++
+		}
+		for ; infCount < query.Infant; infCount++ {
+			paxTypeList = append(paxTypeList, createPassengerType(i, inf, query))
+			i++
+		}
+
 	}
-	for i = 0; i < query.Child; i++ {
-		var passengerId = string(query.Source + "_" + PAX + "_" + strconv.Itoa(int(i+1)))
-		passangers = append(passangers, &PassengerType{
-			PassengerID: passengerId,
-			PTC:         &chd,
-		})
-	}
-	for i = 0; i < query.Infant; i++ {
-		var passengerId = string(query.Source + "_" + PAX + "_" + strconv.Itoa(int(i+1)))
-		passangers = append(passangers, &PassengerType{
-			PassengerID: passengerId,
-			PTC:         &ift,
-		})
-	}
-	return passangers
+
+	return paxTypeList
 }
 
 func craeteOriginDestinations(query Query) *AirShopReqAttributeQueryType {

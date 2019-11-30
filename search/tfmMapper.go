@@ -59,6 +59,7 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 
 	loadRouteMap(rs, routes)
 	loadSegmentMap(rs.DataLists.FlightSegmentList.FlightSegment, segments)
+	loadOriginDestinationRef(rs.DataLists.OriginDestinationList.OriginDestination, routes)
 	//loadFareGroupMap(rs.DataLists.FareList.FareGroup, fareGroupMap)
 	//loadPriceClassMap(rs.DataLists.PriceClassList.PriceClass, priceClasses)
 	loadFareMetaDataGroupMap(rs.Metadata.Shopping.ShopMetadataGroup.Offer.OfferMetadatas.OfferMetadata,
@@ -114,7 +115,9 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				}
 
 				offerItemIdsValues := []string{}
+				var adultOfferItemId string
 				for _, offerItem := range offer.OfferItem {
+
 					if len(offerItem.FareDetail[0].FareComponent) > 1 {
 						//isValidPriceClassCombination = validatePriceClassCombination(
 						//	string(offerItem.FareDetail[0].FareComponent[0].PriceClassRef),
@@ -124,7 +127,11 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 					combination.Fares = createFares(*offerItem, combination.Fares, vcc)
 					additionalParamsValue := (string(offerItem.OfferItemID))
 					offerItemIdsValues = append(offerItemIdsValues, additionalParamsValue)
-					additionalParams[string(offerItem.OfferItemID)] = strings.Trim(string(offerItem.FareDetail[0].PassengerRefs.Value), " ")
+					paxRefs := strings.Trim(string(offerItem.FareDetail[0].PassengerRefs.Value), " ")
+					if isAdultOfferItem(paxRefs) {
+						adultOfferItemId = additionalParamsValue
+					}
+					additionalParams[string(offerItem.OfferItemID)] = paxRefs
 					//} else {
 					//	log.Println("mismtach in price classes skipping the offer ", string(offer.OfferID))
 					//	break
@@ -134,9 +141,11 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				offerItemIds := strings.Join(offerItemIdsValues, ",")
 				additionalParams["offerId"] = string(offer.OfferID)
 				additionalParams["offerItemIds"] = offerItemIds
-				additionalParams["FareType"] = ""
+				additionalParams["adultOfferItemId"] = adultOfferItemId
+
+				/*additionalParams["FareType"] = ""
 				additionalParams["FareLevel"] = "ST"
-				additionalParams["FareId"] = "275007"
+				additionalParams["FareId"] = "275007"*/
 
 				//additionalParams["offerValidity"] = offer.OfferExpirationDateTime.Value
 				combination.AdditionalParams = additionalParams
@@ -173,6 +182,36 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 		AdditionalParams: additionalParams,
 		ResponseTimes:    responseTimes,
 	}, nil
+}
+
+func isAdultOfferItem(paxRefs string) bool {
+	paxList := strings.Split(paxRefs, SPACE_DELIMITER)
+	for _, paxId := range paxList {
+		pax := passengers[paxId]
+		if pax.Type == ADT {
+			return true
+		}
+	}
+	return false
+}
+
+func loadOriginDestinationRef(odList []*OriginDestination, routes map[string]Route) {
+	for _, odListItem := range odList {
+		odKey := odListItem.OriginDestinationKey
+		flightRefs := odListItem.FlightReferences.Value
+		flightRefList := strings.Split(string(flightRefs), SPACE_DELIMITER)
+
+		for _, flightRef := range flightRefList {
+			routeRef := routes[flightRef]
+			routeAddtlParams := routeRef.AdditionalParams
+			if routeAddtlParams == nil {
+				routeAddtlParams = make(map[string]string)
+			}
+			routeAddtlParams[OD_REF] = string(*odKey)
+			routeRef.AdditionalParams = routeAddtlParams
+			routes[flightRef] = routeRef
+		}
+	}
 }
 func (*TfmMapperImpl) CreateEmptyTfmResponse() *TfmResponse {
 	return &TfmResponse{
@@ -375,8 +414,10 @@ func createSegment(segment *ListOfFlightSegmentType) Segment {
 	additionalParams := make(map[string]string)
 	additionalParams["ClassOfServiceCode"] = string(*segment.ClassOfService.Code.Value)
 	additionalParams["ClassOfServiceMarketingName"] = string(*segment.ClassOfService.MarketingName.Value)
+	additionalParams["Duration"] = segment.FlightDetail.FlightDuration.Value
+	additionalParams["AircraftEquipCode"] = string(*segment.Equipment.AirlineEquipCode)
+	additionalParams["AircraftCode"] = string(segment.Equipment.AircraftCode.Value)
 	s.AdditionalParams = additionalParams
-
 	return s
 }
 

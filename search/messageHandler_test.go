@@ -52,7 +52,7 @@ func TestHandleMessage(t *testing.T) {
 		WebserviceFarePreferencesCode:   "758",
 		WebserviceFareCode:              "1234",
 		WebServiceDocumentName:          "NDC",
-		WebServiceRequestCountryCode:    "TR",
+		WebServiceRequestCountryCode:    "DE",
 		WebServiceRequestCityCode:       "City",
 		WebserviceAirLineID:             "XQ",
 		WebserviceAirLineName:           "Sun Express",
@@ -62,12 +62,12 @@ func TestHandleMessage(t *testing.T) {
 
 	tfmResponse, err := search.HandleMessage(config, `{
        "origin" :"AYT",
-       "depDate":"2019-11-23",
-       "retDate":"2019-11-28",
+       "depDate":"2019-12-29",
+       "retDate":"2019-12-30",
        "destination":"FRA",
-       "adult": 1,
-       "child":0,
-       "infant":0,
+       "adult": 2,
+       "child":1,
+       "infant":1,
        "journeyType":"ROUNDTRIP",
        "source":"XQ"
         }`)
