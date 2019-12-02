@@ -1513,6 +1513,8 @@ type AugPointType struct {
 	// Sequence ID. Example: 1
 
 	Seq int32 `xml:"Seq,attr,omitempty"`
+
+	TaxDetailAugPoint TaxDetailAugPoint `xml:"TaxDetailAugPoint,omitempty"`
 }
 
 type AugPointAssocType struct {

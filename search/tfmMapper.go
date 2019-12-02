@@ -160,9 +160,9 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 	}
 
 	additionalParams := make(map[string]string)
-	//additionalParams["afklmSearch.conversationToken"] = conversationToken
-	//additionalParams["afklmSearch.cookie"] = cookie
 	additionalParams["responseId"] = "NA"
+
+	additionalParams = addPriceCurrencyMetadata(rs.Metadata.Other.OtherMetadata, additionalParams)
 
 	var ancillaryList []Ancillary
 	for _, ancillary := range ancillaries {
@@ -182,6 +182,60 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 		AdditionalParams: additionalParams,
 		ResponseTimes:    responseTimes,
 	}, nil
+}
+
+func addPriceCurrencyMetadata(otherMetadataList []*OtherMetadata__12, additionalParams map[string]string) map[string]string {
+	for _, otherMetadata := range otherMetadataList {
+		if otherMetadata.PriceMetadatas != nil { //len(otherMetadata.PriceMetadatas.PriceMetadata) > 0 {
+			additionalParams = addPriceMetadatas(*otherMetadata.PriceMetadatas, additionalParams)
+		}
+		if otherMetadata.CurrencyMetadatas != nil { //len(otherMetadata.CurrencyMetadatas.CurrencyMetadata) > 0 {
+			additionalParams = addCurrencyMetadatas(*otherMetadata.CurrencyMetadatas, additionalParams)
+		}
+	}
+	return additionalParams
+}
+
+func addCurrencyMetadatas(currencyMetadatas CurrencyMetadatas, additionalParams map[string]string) map[string]string {
+	currencyMetadataList := currencyMetadatas.CurrencyMetadata
+
+	for _, currencyMetadata := range currencyMetadataList {
+		key := currencyMetadata.MetadataKey
+		value := strconv.Itoa(int(currencyMetadata.Decimals))
+		additionalParams["CURR_MD_"+key] = value
+	}
+
+	return additionalParams
+}
+
+func addPriceMetadatas(priceMetadatas PriceMetadatas, additionalParams map[string]string) map[string]string {
+	priceMetaDataList := priceMetadatas.PriceMetadata
+
+	for _, priceMetadata := range priceMetaDataList {
+		metaDataKey := priceMetadata.MetadataKey
+		augPointKeys := strings.Builder{}
+		augPointTypeList := priceMetadata.MetadataObjectBaseType.AugmentationPoint.AugPoint
+		for _, augPointType := range augPointTypeList {
+			if len(augPointKeys.String()) > 0 {
+				_, err := augPointKeys.WriteString(" " + string(*augPointType.Key))
+				if err != nil {
+					log.Println("Unable to add augPoint key ", string(*augPointType.Key))
+				}
+			} else {
+				_, err := augPointKeys.WriteString(string(*augPointType.Key))
+				if err != nil {
+					log.Println("Unable to add augPoint key ", string(*augPointType.Key))
+				}
+			}
+
+			additionalParams["PRICE_MD_"+string(*augPointType.Key)] = augPointType.TaxDetailAugPoint.DisplayTaxCode
+		}
+
+		additionalParams[metaDataKey] = augPointKeys.String()
+
+	}
+
+	return additionalParams
 }
 
 func isAdultOfferItem(paxRefs string) bool {
@@ -251,15 +305,7 @@ func loadRouteMap(response *AirShoppingRS, routeMap map[string]Route) map[string
 			SegmentIDs:               strings.Split(string(response.DataLists.FlightList.Flight[i].SegmentReferences.Value), " "),
 			ElapsedFlyingTimeMinutes: calculateElapsedFlyingTime(string(response.DataLists.FlightList.Flight[i].Journey.Time)),
 		}
-		//additionalParams := make(map[string]string)
-		//	additionalParams["OriginationDestinations"] =
-		//		string(*response.DataLists.OriginDestinationList.OriginDestination[i].OriginDestinationKey)
-		//
-
 		routeMap[route.Id] = route
-		//additionalParams["offerId"] = string(offer.OfferID)
-		//ancillary.AdditionalParams = additionalParams
-		//routeMap[route.AdditionalParams] = additionalParams
 	}
 
 	return routeMap
@@ -318,8 +364,6 @@ func loadServiceClassMap(serviceClassList []*ListOfFlightSegmentType, serviceCla
 	return serviceClassMap
 }
 func createServicesClass(serviceType *ListOfFlightSegmentType) ServiceClass {
-	//var fareBaseGroup []FareGroup
-
 	serviceClass := ServiceClass{
 		Id:            "nil",
 		Code:          string(*serviceType.ClassOfService.Code.Value),
@@ -346,53 +390,7 @@ func createPassenger(passengerType *PassengerType) PassengerDetail {
 	return passengerDetail
 }
 
-/*func createServicesClass(serviceClassType *ListOfFlightSegmentType) ServiceClass {
-	var fareGroupList []FareGroup
-	serviceClassess:= serviceClassType.ClassOfService.FareBasisCode
-
-	fareGroupList = append(fareGroupList, createFareGroup(*serviceClassess))
-
-	serviceClass := ServiceClass{
-		FareBaseGroup: serviceClassList,
-	}
-
-	return serviceClass
-}*/
-
-/*func createFareClass(classOfService ClassOfService) ServiceClass {
-
-	var fareGroupList []FareGroup
-	classOfServiceRefs := string(*classOfService.Refs)
-	cosRefItems := strings.Split(classOfServiceRefs, " ")
-
-	for _, cosRefItem := range cosRefItems {
-		if strings.Contains(cosRefItem, FARE_BASE_CODE_PREFIX) {
-			fareGroupList = append(fareGroupList, fareGroupMap[cosRefItem])
-		}
-	}
-
-	serviceClass := ServiceClass{
-		Id:            classOfServiceRefs,
-		Code:          string(*classOfService.Code.Value),
-		MarketingName: string(*classOfService.MarketingName.Value),
-		FareBaseGroup: fareGroupList,
-	}
-
-	return serviceClass
-}*/
-
 func createSegment(segment *ListOfFlightSegmentType) Segment {
-	/*var departureTerminalName = ""
-
-	if segment.Departure.FlightDepartureType != nil && segment.Departure.FlightDepartureType.Terminal != nil {
-		departureTerminalName = string(*segment.Departure.FlightDepartureType.Terminal.Name)
-	}
-	var arrivalTerminalName = ""
-
-	if segment.Arrival != nil && segment.Arrival.Terminal != nil {
-		arrivalTerminalName = string(*segment.Arrival.Terminal.Name)
-	}*/
-
 	s := Segment{
 		Id:     string(*segment.SegmentKey),
 		Origin: string(*segment.Departure.AirportCode.Value),
