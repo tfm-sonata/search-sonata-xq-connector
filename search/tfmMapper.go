@@ -516,6 +516,9 @@ func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRe
 	var sepKeys = strings.Split(string(key), " ")
 	additionalParams[segmentRef] = strings.Join(sepKeys, ",") // SEG1--> v1_FMDXXXXXXX, V1_FCOMPREFXXXXXX
 
+	//add fare details
+	additionalParams["baseAmount"] = strconv.FormatFloat((fareComponent.Price.BaseAmount.Value), 'f', -1, 64)
+
 	//additionalParams[segmentRef]= strings.Split(string(fareComponent.FareBasis.FareBasisCode.Refs), " ")
 
 	fareProductFinal = FareProduct{
