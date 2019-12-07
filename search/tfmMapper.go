@@ -425,7 +425,7 @@ func createDefaultHandBaggage() {
 		Type: BAGGAGE_ANCILLARY,
 	}
 	additionalParams := make(map[string]string)
-	additionalParams["peices"] = "1"
+	additionalParams["pieces"] = "1"
 	additionalParams["type"] = DEFAULT_HAND_BAGGAGE
 
 	ancillary.AdditionalParams = additionalParams
@@ -518,7 +518,8 @@ func createFareProduct(fareComponent FareComponentType, segmentRef string, paxRe
 
 	//add fare details
 	additionalParams["baseAmount"] = strconv.FormatFloat((fareComponent.Price.BaseAmount.Value), 'f', -1, 64)
-
+	additionalParams["taxAmount"] = strconv.FormatFloat((fareComponent.Price.Taxes.Total.Value), 'f', -1, 64)
+	additionalParams["surcharge"] = strconv.FormatFloat((fareComponent.Price.Surcharges.Surcharge[0].Total.Value), 'f', -1, 64)
 	//additionalParams[segmentRef]= strings.Split(string(fareComponent.FareBasis.FareBasisCode.Refs), " ")
 
 	fareProductFinal = FareProduct{
