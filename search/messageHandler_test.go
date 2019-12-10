@@ -48,7 +48,7 @@ func TestHandleMessage(t *testing.T) {
 		WebserviceAPIKey:                "qphhwxy2pf5hyeh37gvjdg4c",
 		WebserviceParticipantName:       "JETRADAR",
 		WebserviceCabinCode:             "5",
-		WebserviceFarePreferencesCotext: "TO",
+		WebserviceFarePreferencesCotext: "PU",
 		WebserviceFarePreferencesCode:   "758",
 		WebserviceFareCode:              "1234",
 		WebServiceDocumentName:          "NDC",

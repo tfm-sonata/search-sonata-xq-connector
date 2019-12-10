@@ -2,6 +2,7 @@ package search
 
 import (
 	"fmt"
+	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/model"
 	"git-codecommit.eu-central-1.amazonaws.com/search-sonata-xq-connector/util"
 	"log"
 	"regexp"
@@ -104,9 +105,7 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				// initialize array
 				combination.TotalFareAmount = totalFareAmount
 				combination.TotalTaxAmount = totalTaxAmount
-
 				//add route references
-
 				for _, flightservice := range offer.OfferItem[0].Service {
 					routeIDs := strings.Split(string(flightservice.FlightRefs), " ")
 					for _, routeID := range routeIDs {
@@ -143,18 +142,12 @@ func (*TfmMapperImpl) CreateTFMResponse(rs *AirShoppingRS, conversationToken str
 				additionalParams["offerItemIds"] = offerItemIds
 				additionalParams["adultOfferItemId"] = adultOfferItemId
 
-				/*additionalParams["FareType"] = ""
-				additionalParams["FareLevel"] = "ST"
-				additionalParams["FareId"] = "275007"*/
-
 				//additionalParams["offerValidity"] = offer.OfferExpirationDateTime.Value
 				combination.AdditionalParams = additionalParams
 				combinationCounter++
+				combination.TariffType = model.RequestConfig.WebserviceFarePreferencesCotext
 				combinations = append(combinations, combination)
 			}
-			//} else {
-			//	break
-			//}
 		}
 
 	}
